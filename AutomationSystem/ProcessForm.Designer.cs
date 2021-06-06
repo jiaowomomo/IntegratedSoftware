@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.processViewNew1 = new AutomationSystem.UI.ProcessViewNew();
+            this.processViewNew1 = new UIControl.HalconVision.ProcessViewNew();
             this.SuspendLayout();
             // 
             // processViewNew1
@@ -54,6 +54,6 @@
 
         #endregion
 
-        private UI.ProcessViewNew processViewNew1;
+        private UIControl.HalconVision.ProcessViewNew processViewNew1;
     }
 }

@@ -103,8 +103,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SetWindowName";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SetWindowName";
+            this.Text = "设置窗口别名";
             this.ResumeLayout(false);
             this.PerformLayout();
 

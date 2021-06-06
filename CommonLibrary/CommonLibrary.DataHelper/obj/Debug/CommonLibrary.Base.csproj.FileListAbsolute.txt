@@ -1,0 +1,7 @@
+C:\工作\软件开发\研发软件\AutomationSystem\BuildDLL\CommonLibrary.Base.dll
+C:\工作\软件开发\研发软件\AutomationSystem\BuildDLL\CommonLibrary.Base.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Base\obj\Debug\CommonLibrary.Base.csproj.CoreCompileInputs.cache
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Base\obj\Debug\CommonLibrary.Base.csproj.CopyComplete
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Base\obj\Debug\CommonLibrary.Base.dll
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Base\obj\Debug\CommonLibrary.Base.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Base\obj\Debug\CommonLibrary.Base.csprojAssemblyReference.cache

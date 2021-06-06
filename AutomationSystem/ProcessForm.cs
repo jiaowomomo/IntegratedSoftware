@@ -13,19 +13,9 @@ namespace AutomationSystem
 {
     public partial class ProcessForm : DockContent
     {
-        private static ProcessForm _instance = null;
+        private static readonly Lazy<ProcessForm> m_instance = new Lazy<ProcessForm>(() => new ProcessForm());
 
-        public static ProcessForm Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new ProcessForm();
-                }
-                return _instance;
-            }
-        }
+        public static ProcessForm Instance { get => m_instance.Value; }
 
         private ProcessForm()
         {

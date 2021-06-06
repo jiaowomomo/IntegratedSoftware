@@ -1,0 +1,15 @@
+C:\工作\软件开发\研发软件\AutomationSystem\ExternTool\Halcon.CoordinateConversion.dll
+C:\工作\软件开发\研发软件\AutomationSystem\ExternTool\Halcon.CoordinateConversion.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.CoordinateConversionForm.resources
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.csproj.GenerateResource.cache
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.csproj.CoreCompileInputs.cache
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.dll
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.pdb
+C:\Users\10073\Desktop\AutomationSystem\ExternTool\Halcon.CoordinateConversion.dll
+C:\Users\10073\Desktop\AutomationSystem\ExternTool\Halcon.CoordinateConversion.pdb
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.csproj.AssemblyReference.cache
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.CoordinateConversionForm.resources
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.csproj.GenerateResource.cache
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.csproj.CoreCompileInputs.cache
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.dll
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.pdb

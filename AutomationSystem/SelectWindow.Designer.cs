@@ -106,8 +106,9 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Name = "SelectWindow";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SelectWindow";
+            this.Text = "流程窗口选择";
             this.ResumeLayout(false);
             this.PerformLayout();
 

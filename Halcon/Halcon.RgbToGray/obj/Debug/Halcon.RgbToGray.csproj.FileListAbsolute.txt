@@ -1,0 +1,15 @@
+C:\工作\软件开发\研发软件\AutomationSystem\ExternTool\Halcon.RgbToGray.dll
+C:\工作\软件开发\研发软件\AutomationSystem\ExternTool\Halcon.RgbToGray.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.RgbToGrayForm.resources
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.csproj.GenerateResource.cache
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.csproj.CoreCompileInputs.cache
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.dll
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.csprojAssemblyReference.cache
+C:\Users\10073\Desktop\AutomationSystem\ExternTool\Halcon.RgbToGray.dll
+C:\Users\10073\Desktop\AutomationSystem\ExternTool\Halcon.RgbToGray.pdb
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.RgbToGrayForm.resources
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.csproj.GenerateResource.cache
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.csproj.CoreCompileInputs.cache
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.dll
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.pdb

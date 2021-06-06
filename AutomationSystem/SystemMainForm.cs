@@ -11,31 +11,49 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AutomationSystem.Base;
-using AutomationSystem.GlobalObject;
-using AutomationSystem.Halcon;
-using AutomationSystem.Manager;
-using AutomationSystem.UI;
+using CommonLibrary.DataHelper;
+using CommonLibrary.ExtensionUtils;
+using CommonLibrary.Manager;
+using Global.Functions;
+using Halcon.Functions;
 using HalconDotNet;
+using UIControl.HalconVision;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace AutomationSystem
 {
     public partial class SystemMainForm : Form
     {
-        private static string _dockpanelConfigFile = Application.StartupPath + @"\default.jw";
+        private const int FIXED_FORM_COUNT = 3;
+        private const int SELECT_WINDOW_COUNT = 20;
+
+        private static readonly string m_strDefaultConfigFile = Path.Combine(Application.StartupPath, "Default.jw");
+        private static readonly string m_strHistoryFilePath = Path.Combine(Application.StartupPath, "History", "FilePath.txt");
+        private static readonly string m_strSerialConfigPath = Path.Combine(Application.StartupPath, "CtrlCard", "Serial.cfg");
+        private static readonly string m_strServerConfigPath = Path.Combine(Application.StartupPath, "CtrlCard", "Server.cfg");
+        private static readonly string m_strClientConfigPath = Path.Combine(Application.StartupPath, "CtrlCard", "Client.cfg");
+        private static readonly string m_strCalibrationPluginPath = Path.Combine(Application.StartupPath, "Calibration");
+        private static readonly string m_strHistoryCodePath = Path.Combine(Application.StartupPath, "History", "CodePath.txt");
+        private static readonly string m_strTempPath = Path.Combine(Application.StartupPath, "Temp");
+        private static readonly string m_strTempWindowConfigPath = Path.Combine(m_strTempPath, "Window.config");
+        private static readonly string m_strTempSelectConfigPath = Path.Combine(m_strTempPath, "Select.config");
+        private static readonly string m_strTempDockDefaultConfigPath = Path.Combine(m_strTempPath, "DockManagerDefault.config");
+        private static readonly string m_strTempDrawPath = Path.Combine(m_strTempPath, "Draw.route");
+        private static readonly string m_strTempProcessPath = Path.Combine(m_strTempPath, "Process");
+
         private ProcessManager<string> m_listWindows = new ProcessManager<string>();//新建窗口管理
         private ProcessManager<int> m_listSelectWindows = new ProcessManager<int>();//展示结果窗口索引
-        private int nWindowsCount = 0;
-        private int nLoadedWindowsCount = 0;
-        private int nFixedFormCount = 3;
-        private string strCurrentFile = "";
+        private int m_nWindowsCount = 0;
+        private int m_nLoadedWindowsCount = 0;
+        private string m_strCurrentFile = string.Empty;
 
         public SystemMainForm()
         {
             InitializeComponent();
 
-            for (int i = 0; i < 20; i++)
+            InitDirectorys();
+
+            for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
             {
                 m_listSelectWindows.AddProcess(0);
                 GlobalObjectList.ImageListObject.Add(new ProcessManager<IImageHalconObject>());
@@ -47,22 +65,22 @@ namespace AutomationSystem
         {
             try
             {
-                if (File.Exists(Application.StartupPath + @"\history\FilePath.txt"))
+                if (File.Exists(m_strHistoryFilePath))
                 {
-                    using (StreamReader sr = new StreamReader(Application.StartupPath + @"\history\FilePath.txt"))
+                    using (StreamReader sr = new StreamReader(m_strHistoryFilePath))
                     {
-                        strCurrentFile = sr.ReadLine();
+                        m_strCurrentFile = sr.ReadLine();
                     }
-                    if (strCurrentFile != "")
+                    if (m_strCurrentFile != "")
                     {
-                        OpenProject(strCurrentFile);
+                        OpenProject(m_strCurrentFile);
                     }
                     else
                     {
                         NewProject();
                     }
                 }
-                else if (File.Exists(_dockpanelConfigFile))
+                else if (File.Exists(m_strDefaultConfigFile))
                 {
                     NewProject();
                 }
@@ -78,8 +96,24 @@ namespace AutomationSystem
 
             LoadToolMenu();
             GlobalObjectList.OnFinish += OnFinish;
+        }
 
-            this.WindowState = FormWindowState.Normal;
+        private void InitDirectorys()
+        {
+            List<string> directorys = new List<string>();
+            directorys.Add(Path.Combine(Application.StartupPath, "History"));
+            directorys.Add(Path.Combine(Application.StartupPath, "CodeSystem"));
+            directorys.Add(Path.Combine(Application.StartupPath, "CtrlCard"));
+            directorys.Add(Path.Combine(Application.StartupPath, "CameraDLL"));
+            directorys.Add(Path.Combine(Application.StartupPath, "ModelImage"));
+            directorys.Add(Path.Combine(Application.StartupPath, "AutoCircleCalibration"));
+            directorys.Add(Path.Combine(Application.StartupPath, "Calibration"));
+            directorys.Add(Path.Combine(Application.StartupPath, "ManualCalibration"));
+            directorys.Add(Path.Combine(Application.StartupPath, "MotionCardDLL"));
+            directorys.Add(Path.Combine(Application.StartupPath, "Temp"));
+            directorys.Add(Path.Combine(Application.StartupPath, "ExternTool"));
+
+            DirectoryUtils.CreateAndReturnFailureDirectorys(directorys);
         }
 
         private void ResetFormLocation()
@@ -87,6 +121,7 @@ namespace AutomationSystem
             ToolForm.Instance.Show(dockPanelMain, DockState.DockRight);
             MessageForm.Instance.Show(dockPanelMain, DockState.DockBottom);
             ProcessForm.Instance.Show(dockPanelMain, DockState.DockLeft);
+            NewWindowForm();
         }
 
         private void LoadToolMenu()
@@ -103,13 +138,31 @@ namespace AutomationSystem
 
         private void LoadPlugins()
         {
-            Function.LoadFormPlugins(Application.StartupPath + @"\Calibration", ref this.toolStripTextTool, tool_Clcik);
+            List<IFormMenu> formMenus = Function.LoadFormPlugins<IFormMenu>(m_strCalibrationPluginPath);
+            foreach (var menu in formMenus)
+            {
+                //向菜单栏中动态添加一个菜单项
+                ToolStripDropDownButton tsddb = new ToolStripDropDownButton(menu.MainToolStrip);
+                tsddb.Name = $"ToolStripDropDownButton{menu.MainToolStrip}";
+                tsddb.DisplayStyle = ToolStripItemDisplayStyle.Text;
+                tsddb.ShowDropDownArrow = false;
+                if (!this.toolStripTextTool.Items.ContainsKey(tsddb.Name))
+                {
+                    this.toolStripTextTool.Items.AddRange(new ToolStripItem[] { tsddb });
+                }
+                int index = this.toolStripTextTool.Items.IndexOfKey(tsddb.Name);
+                ToolStripItem toolStripItem = new ToolStripMenuItem(menu.SubToolStrip);
+                ((ToolStripDropDownButton)this.toolStripTextTool.Items[index]).DropDownItems.AddRange(new ToolStripItem[] { toolStripItem });
+                //为刚刚增加的菜单项注册一个单击事件
+                toolStripItem.Click += Tool_Clcik;
+                toolStripItem.Tag = menu;
+            }
         }
 
         private void LoadWindowMenu()
         {
             toolStripDropDownButtonWindow.DropDownItems.Clear();
-            for (int i = nFixedFormCount; i < dockPanelMain.Contents.Count; i++)
+            for (int i = FIXED_FORM_COUNT; i < dockPanelMain.Contents.Count; i++)
             {
                 ToolStripMenuItem menuItem = new ToolStripMenuItem(dockPanelMain.Contents[i].DockHandler.TabText);
                 menuItem.Checked = !dockPanelMain.Contents[i].DockHandler.IsHidden;
@@ -118,14 +171,14 @@ namespace AutomationSystem
                 dockPanelMain.Contents[i].DockHandler.HideOnClose = true;
                 ((ToolStripDropDownButton)toolStripTextTool.Items["toolStripDropDownButtonWindow"]).DropDownItems.AddRange(new ToolStripItem[] { menuItem });
                 //为刚刚增加的菜单项注册一个单击事件
-                menuItem.Click += toolWindow_Click;
+                menuItem.Click += ToolWindow_Click;
             }
         }
 
         private void LoadViewMenu()
         {
             toolStripDropDownButtonView.DropDownItems.Clear();
-            for (int i = 0; i < dockPanelMain.Contents.Count - nWindowsCount; i++)
+            for (int i = 0; i < dockPanelMain.Contents.Count - m_nWindowsCount; i++)
             {
                 ToolStripMenuItem menuItem = new ToolStripMenuItem(dockPanelMain.Contents[i].DockHandler.TabText);
                 menuItem.Checked = !dockPanelMain.Contents[i].DockHandler.IsHidden;
@@ -134,11 +187,11 @@ namespace AutomationSystem
                 dockPanelMain.Contents[i].DockHandler.HideOnClose = true;
                 ((ToolStripDropDownButton)toolStripTextTool.Items["toolStripDropDownButtonView"]).DropDownItems.AddRange(new ToolStripItem[] { menuItem });
                 //为刚刚增加的菜单项注册一个单击事件
-                menuItem.Click += toolView_Click;
+                menuItem.Click += ToolView_Click;
             }
         }
 
-        private void tool_Clcik(object sender, EventArgs e)
+        private void Tool_Clcik(object sender, EventArgs e)
         {
             ToolStripItem item = sender as ToolStripItem;
             if (item != null)
@@ -155,7 +208,7 @@ namespace AutomationSystem
             }
         }
 
-        private void toolView_Click(object sender, EventArgs e)
+        private void ToolView_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem tsm = sender as ToolStripMenuItem;
             tsm.Checked = !tsm.Checked;
@@ -173,7 +226,7 @@ namespace AutomationSystem
             }
         }
 
-        private void toolWindow_Click(object sender, EventArgs e)
+        private void ToolWindow_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem tsm = sender as ToolStripMenuItem;
             tsm.Checked = !tsm.Checked;
@@ -182,26 +235,20 @@ namespace AutomationSystem
             {
                 if (tsm.Checked)
                 {
-                    dockPanelMain.Contents[nFixedFormCount + index].DockHandler.Show();
+                    dockPanelMain.Contents[FIXED_FORM_COUNT + index].DockHandler.Show();
                 }
                 else
                 {
-                    dockPanelMain.Contents[nFixedFormCount + index].DockHandler.Hide();
+                    dockPanelMain.Contents[FIXED_FORM_COUNT + index].DockHandler.Hide();
                 }
             }
         }
 
         private void SystemMainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //dockPanelMain.SaveAsXml(_dockpanelConfigFile);
-
-            if (!Directory.Exists(Application.StartupPath + @"\history"))
+            using (StreamWriter sw = new StreamWriter(m_strHistoryFilePath))
             {
-                Directory.CreateDirectory(Application.StartupPath + @"\history");
-            }
-            using (StreamWriter sw = new StreamWriter(Application.StartupPath + @"\history\FilePath.txt"))
-            {
-                sw.WriteLine(strCurrentFile);
+                sw.WriteLine(m_strCurrentFile);
             }
         }
 
@@ -214,8 +261,8 @@ namespace AutomationSystem
             if (persistString == typeof(WindowForm).ToString())
             {
                 WindowForm windowForm = new WindowForm();
-                windowForm.Text = m_listWindows.ProcessList[nLoadedWindowsCount];
-                nLoadedWindowsCount++;
+                windowForm.Text = m_listWindows.GetProcessByIndex(m_nLoadedWindowsCount);
+                m_nLoadedWindowsCount++;
                 return windowForm;
             }
             if (persistString == typeof(ProcessForm).ToString())
@@ -223,17 +270,22 @@ namespace AutomationSystem
             return null;
         }
 
-        private void toolStripMenuItemNewWindow_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemNewWindow_Click(object sender, EventArgs e)
+        {
+            NewWindowForm();
+        }
+
+        private void NewWindowForm()
         {
             WindowForm windowForm = new WindowForm();
-            nWindowsCount++;
-            windowForm.Text = "窗口" + nWindowsCount.ToString();
+            m_nWindowsCount++;
+            windowForm.Text = $"窗口{m_nWindowsCount}";
             m_listWindows.AddProcess(windowForm.Text);
             windowForm.Show(dockPanelMain, DockState.Document);
             LoadWindowMenu();
         }
 
-        private void toolStripMenuItemNewProject_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemNewProject_Click(object sender, EventArgs e)
         {
             try
             {
@@ -249,31 +301,26 @@ namespace AutomationSystem
 
         private void NewProject()
         {
-            //创建缓冲文件夹
-            if (!Directory.Exists(Application.StartupPath + @"\temp"))
-            {
-                Directory.CreateDirectory(Application.StartupPath + @"\temp");
-            }
-            ZipHelper.UnZip(Application.StartupPath + @"\default.jw", Application.StartupPath + @"\temp");
-            m_listWindows.Load(Application.StartupPath + @"\temp\Window.config");
-            nWindowsCount = m_listWindows.ProcessList.Count;
-            nLoadedWindowsCount = 0;
-            m_listSelectWindows.Load(Application.StartupPath + @"\temp\Select.config");
+            ZipHelper.UnZip(m_strDefaultConfigFile, m_strTempPath);
+            m_listWindows.Load(m_strTempWindowConfigPath);
+            m_nWindowsCount = m_listWindows.ProcessCount;
+            m_nLoadedWindowsCount = 0;
+            m_listSelectWindows.Load(m_strTempSelectConfigPath);
             InitDockPanel();
-            dockPanelMain.LoadFromXml(Application.StartupPath + @"\temp\DockManagerDefault.config", new DeserializeDockContent(GetDeserializeDockContent));
-            for (int i = 0; i < 20; i++)
+            dockPanelMain.LoadFromXml(m_strTempDockDefaultConfigPath, new DeserializeDockContent(GetDeserializeDockContent));
+            for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
             {
-                GlobalObjectList.ImageListObject[i].Load(Application.StartupPath + @"\temp\Process" + i.ToString() + ".handle");
+                GlobalObjectList.ImageListObject[i].Load($"{m_strTempProcessPath}{i}.handle");
             }
             this.Text = "AutomationSystem";
-            strCurrentFile = "";
+            m_strCurrentFile = string.Empty;
         }
 
         private void InitDockPanel()
         {
-            for (int i = nFixedFormCount; i < this.dockPanelMain.Contents.Count; i = i)
+            for (int i = this.dockPanelMain.Contents.Count; i > FIXED_FORM_COUNT; i--)
             {
-                dockPanelMain.Contents[i].DockHandler.Close();
+                dockPanelMain.Contents[i - 1].DockHandler.Close();
             }
             this.panel1.Controls.Remove(this.dockPanelMain);
             this.dockPanelMain = new DockPanel();
@@ -287,7 +334,7 @@ namespace AutomationSystem
             this.panel1.Controls.Add(this.dockPanelMain);
         }
 
-        private void toolStripMenuItemOpenProject_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemOpenProject_Click(object sender, EventArgs e)
         {
             try
             {
@@ -308,29 +355,24 @@ namespace AutomationSystem
 
         private void OpenProject(string filePath)
         {
-            //创建缓冲文件夹
-            if (!Directory.Exists(Application.StartupPath + @"\temp"))
-            {
-                Directory.CreateDirectory(Application.StartupPath + @"\temp");
-            }
-            ZipHelper.UnZip(filePath, Application.StartupPath + @"\temp");
-            m_listWindows.Load(Application.StartupPath + @"\temp\Window.config");
-            nWindowsCount = m_listWindows.ProcessList.Count;
-            nLoadedWindowsCount = 0;
-            m_listSelectWindows.Load(Application.StartupPath + @"\temp\Select.config");
+            ZipHelper.UnZip(filePath, m_strTempPath);
+            m_listWindows.Load(m_strTempWindowConfigPath);
+            m_nWindowsCount = m_listWindows.ProcessCount;
+            m_nLoadedWindowsCount = 0;
+            m_listSelectWindows.Load(m_strTempSelectConfigPath);
             InitDockPanel();
-            dockPanelMain.LoadFromXml(Application.StartupPath + @"\temp\DockManagerDefault.config", new DeserializeDockContent(GetDeserializeDockContent));
-            for (int i = 0; i < 20; i++)
+            dockPanelMain.LoadFromXml(m_strTempDockDefaultConfigPath, new DeserializeDockContent(GetDeserializeDockContent));
+            for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
             {
-                GlobalObjectList.ImageListObject[i].Load(Application.StartupPath + @"\temp\Process" + i.ToString() + ".handle");
+                GlobalObjectList.ImageListObject[i].Load($"{m_strTempProcessPath}{i}.handle");
             }
             this.Text = "AutomationSystem---" + filePath;
-            strCurrentFile = filePath;
+            m_strCurrentFile = filePath;
         }
 
-        private void toolStripMenuItemSaveProject_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemSaveProject_Click(object sender, EventArgs e)
         {
-            if (strCurrentFile == "")
+            if (string.IsNullOrEmpty(m_strCurrentFile))
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "流程文件|*.jw";
@@ -341,7 +383,7 @@ namespace AutomationSystem
             }
             else
             {
-                SaveProject(strCurrentFile);
+                SaveProject(m_strCurrentFile);
             }
         }
 
@@ -349,19 +391,14 @@ namespace AutomationSystem
         {
             try
             {
-                //创建缓冲文件夹
-                if (!Directory.Exists(Application.StartupPath + @"\temp"))
+                for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
                 {
-                    Directory.CreateDirectory(Application.StartupPath + @"\temp");
+                    GlobalObjectList.ImageListObject[i].Save($"{m_strTempProcessPath}{i}.handle");
                 }
-                for (int i = 0; i < 20; i++)
-                {
-                    GlobalObjectList.ImageListObject[i].Save(Application.StartupPath + @"\temp\Process" + i.ToString() + ".handle");
-                }
-                m_listWindows.Save(Application.StartupPath + @"\temp\Window.config");
-                m_listSelectWindows.Save(Application.StartupPath + @"\temp\Select.config");
-                dockPanelMain.SaveAsXml(Application.StartupPath + @"\temp\DockManagerDefault.config");
-                ZipHelper.CreateZip(Application.StartupPath + @"\temp", savePath);
+                m_listWindows.Save(m_strTempWindowConfigPath);
+                m_listSelectWindows.Save(m_strTempSelectConfigPath);
+                dockPanelMain.SaveAsXml(m_strTempDockDefaultConfigPath);
+                ZipHelper.CreateZip(m_strTempPath, savePath);
                 MessageBox.Show("保存成功");
 
             }
@@ -371,19 +408,19 @@ namespace AutomationSystem
             }
         }
 
-        private void toolStripMenuItemDataInput_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemDataInput_Click(object sender, EventArgs e)
         {
             DataInputView dataInputView = new DataInputView();
             dataInputView.Show();
         }
 
-        private void toolStripMenuItemDataOutput_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemDataOutput_Click(object sender, EventArgs e)
         {
             DataOutputView dataOutputView = new DataOutputView();
             dataOutputView.Show();
         }
 
-        private void toolStripButtonNewProject_Click(object sender, EventArgs e)
+        private void ToolStripButtonNewProject_Click(object sender, EventArgs e)
         {
             try
             {
@@ -397,7 +434,7 @@ namespace AutomationSystem
             }
         }
 
-        private void toolStripButtonOpenProject_Click(object sender, EventArgs e)
+        private void ToolStripButtonOpenProject_Click(object sender, EventArgs e)
         {
             try
             {
@@ -416,9 +453,9 @@ namespace AutomationSystem
             }
         }
 
-        private void toolStripButtonSaveProject_Click(object sender, EventArgs e)
+        private void ToolStripButtonSaveProject_Click(object sender, EventArgs e)
         {
-            if (strCurrentFile == "")
+            if (m_strCurrentFile == "")
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "流程文件|*.jw";
@@ -429,54 +466,59 @@ namespace AutomationSystem
             }
             else
             {
-                SaveProject(strCurrentFile);
+                SaveProject(m_strCurrentFile);
             }
         }
 
-        private void toolStripButtonStart_Click(object sender, EventArgs e)
+        private void ToolStripButtonStart_Click(object sender, EventArgs e)
         {
             Action action = new Action(() => { toolStripButtonStart.Enabled = false; toolStripButtonPause.Enabled = true; toolStripButtonStop.Enabled = true; toolStripStatusLabel1.Text = "流程运行中"; });
             this.Invoke(action);
-            GlobalObjectList.RunIndexProcess(GlobalObjectList.nSelectIndex);
+            GlobalObjectList.RunIndexProcess(GlobalObjectList.SelectedImageIndex);
         }
 
-        private void toolStripMenuItemSaveAs_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemSaveAs_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "流程文件|*.jw";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 SaveProject(sfd.FileName);
-                strCurrentFile = sfd.FileName;
-                this.Text = "AutomationSystem---" + strCurrentFile;
+                m_strCurrentFile = sfd.FileName;
+                this.Text = "AutomationSystem---" + m_strCurrentFile;
             }
         }
 
-        private void toolStripButtonPause_Click(object sender, EventArgs e)
+        private void ToolStripButtonPause_Click(object sender, EventArgs e)
         {
             Action action = new Action(() => { toolStripButtonStart.Enabled = true; toolStripButtonPause.Enabled = false; toolStripButtonStop.Enabled = true; toolStripStatusLabel1.Text = "流程暂停中"; });
             this.Invoke(action);
             GlobalObjectList.PauseImageProcess();
         }
 
-        private void toolStripButtonStop_Click(object sender, EventArgs e)
+        private void ToolStripButtonStop_Click(object sender, EventArgs e)
         {
             GlobalObjectList.StopImageProcess();
         }
 
-        private void toolStripMenuItemSetWindowName_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemSetWindowName_Click(object sender, EventArgs e)
         {
-            SetWindowName setWindowName = new SetWindowName(m_listWindows.ProcessList);
+            List<string> names = new List<string>();
+            for (int i = 0; i < m_listWindows.ProcessCount; i++)
+            {
+                names.Add(m_listWindows.GetProcessByIndex(i));
+            }
+            SetWindowName setWindowName = new SetWindowName(names);
             if (setWindowName.ShowDialog() == DialogResult.OK)
             {
                 m_listWindows.CreateNewProcess();
-                for (int i = 0; i < setWindowName.setNames.Count; i++)
+                for (int i = 0; i < setWindowName.SetNames.Count; i++)
                 {
-                    m_listWindows.AddProcess(setWindowName.setNames[i]);
-                    dockPanelMain.Contents[nFixedFormCount + i].DockHandler.TabText = setWindowName.setNames[i];
+                    m_listWindows.AddProcess(setWindowName.SetNames[i]);
+                    dockPanelMain.Contents[FIXED_FORM_COUNT + i].DockHandler.TabText = setWindowName.SetNames[i];
                 }
                 toolStripDropDownButtonWindow.DropDownItems.Clear();
-                for (int i = nFixedFormCount; i < dockPanelMain.Contents.Count; i++)
+                for (int i = FIXED_FORM_COUNT; i < dockPanelMain.Contents.Count; i++)
                 {
                     ToolStripMenuItem menuItem = new ToolStripMenuItem(dockPanelMain.Contents[i].DockHandler.TabText);
                     menuItem.Checked = !dockPanelMain.Contents[i].DockHandler.IsHidden;
@@ -485,29 +527,28 @@ namespace AutomationSystem
                     dockPanelMain.Contents[i].DockHandler.HideOnClose = true;
                     ((ToolStripDropDownButton)toolStripTextTool.Items["toolStripDropDownButtonWindow"]).DropDownItems.AddRange(new ToolStripItem[] { menuItem });
                     //为刚刚增加的菜单项注册一个单击事件
-                    menuItem.Click += toolWindow_Click;
+                    menuItem.Click += ToolWindow_Click;
                 }
             }
         }
 
-        private void toolStripMenuItemCodeEdit_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemCodeEdit_Click(object sender, EventArgs e)
         {
         }
 
-        private void toolStripButtonRunCode_Click(object sender, EventArgs e)
+        private void ToolStripButtonRunCode_Click(object sender, EventArgs e)
         {
+
         }
 
-        private void toolStripButtonPauseCode_Click(object sender, EventArgs e)
+        private void ToolStripButtonPauseCode_Click(object sender, EventArgs e)
         {
+      
         }
 
-        private void toolStripButtonStopCode_Click(object sender, EventArgs e)
+        private void ToolStripButtonStopCode_Click(object sender, EventArgs e)
         {
-        }
-
-        private void OnStatusChange()
-        {
+     
         }
 
         private void OnFinish(HImage hImage, List<ShowObject> showObjects, List<ShowText> showTexts, string message, int index)
@@ -518,17 +559,34 @@ namespace AutomationSystem
                 toolStripButtonPause.Enabled = false;
                 toolStripButtonStop.Enabled = false;
                 toolStripStatusLabel1.Text = "空闲中";
-                ((WindowForm)dockPanelMain.Contents[nFixedFormCount + m_listSelectWindows.ProcessList[index]].DockHandler.Content).SetShowObjects(showObjects);
-                ((WindowForm)dockPanelMain.Contents[nFixedFormCount + m_listSelectWindows.ProcessList[index]].DockHandler.Content).SetTexts(showTexts);
-                ((WindowForm)dockPanelMain.Contents[nFixedFormCount + m_listSelectWindows.ProcessList[index]].DockHandler.Content).SetImage(hImage);
+                int selectedWindowsIndex = m_listSelectWindows.GetProcessByIndex(index);
+                if (selectedWindowsIndex == -1)
+                    return;
+                WindowForm windowForm = ((WindowForm)dockPanelMain.Contents[FIXED_FORM_COUNT + selectedWindowsIndex].DockHandler.Content);
+                if (windowForm != null)
+                {
+                    windowForm.SetShowObjects(showObjects);
+                    windowForm.SetTexts(showTexts);
+                    windowForm.SetImage(hImage);
+                }
                 MessageForm.Instance.SetMessage(message);
             });
             this.Invoke(action);
         }
 
-        private void toolStripMenuItemSelectWindow_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemSelectWindow_Click(object sender, EventArgs e)
         {
-            SelectWindow selectWindow = new SelectWindow(m_listWindows.ProcessList, m_listSelectWindows.ProcessList);
+            List<string> names = new List<string>();
+            List<int> selectWindows = new List<int>();
+            for (int i = 0; i < m_listWindows.ProcessCount; i++)
+            {
+                names.Add(m_listWindows.GetProcessByIndex(i));
+            }
+            for (int i = 0; i < m_listSelectWindows.ProcessCount; i++)
+            {
+                selectWindows.Add(m_listSelectWindows.GetProcessByIndex(i));
+            }
+            SelectWindow selectWindow = new SelectWindow(names, selectWindows);
             if (selectWindow.ShowDialog() == DialogResult.OK)
             {
                 m_listSelectWindows.CreateNewProcess();
@@ -539,16 +597,19 @@ namespace AutomationSystem
             }
         }
 
-        private void toolStripMenuItemSerialPort_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemSerialPort_Click(object sender, EventArgs e)
         {
+
         }
 
-        private void toolStripMenuItemServer_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemServer_Click(object sender, EventArgs e)
         {
+
         }
 
-        private void toolStripMenuItemClient_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemClient_Click(object sender, EventArgs e)
         {
+
         }
     }
 }

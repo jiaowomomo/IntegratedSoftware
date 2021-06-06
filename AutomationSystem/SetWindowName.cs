@@ -12,7 +12,7 @@ namespace AutomationSystem
 {
     public partial class SetWindowName : Form
     {
-        public List<string> setNames = new List<string>();
+        public List<string> SetNames = new List<string>();
 
         public SetWindowName(List<string> names)
         {
@@ -23,14 +23,14 @@ namespace AutomationSystem
             {
                 comboBox1.Items.Add(names[i]);
             }
-            setNames = names;
+            SetNames = names;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedIndex != -1)
             {
-                setNames[comboBox1.SelectedIndex] = textBox1.Text;
+                SetNames[comboBox1.SelectedIndex] = textBox1.Text;
             }
         }
     }

@@ -1,0 +1,17 @@
+C:\工作\软件开发\研发软件\AutomationSystem\ExternTool\Halcon.Threshold.dll
+C:\工作\软件开发\研发软件\AutomationSystem\ExternTool\Halcon.Threshold.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.csprojAssemblyReference.cache
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.ThresholdForm.resources
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.ThresholdFormNew.resources
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.csproj.GenerateResource.cache
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.csproj.CoreCompileInputs.cache
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.dll
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.pdb
+C:\Users\10073\Desktop\AutomationSystem\ExternTool\Halcon.Threshold.dll
+C:\Users\10073\Desktop\AutomationSystem\ExternTool\Halcon.Threshold.pdb
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.ThresholdForm.resources
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.ThresholdFormNew.resources
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.csproj.GenerateResource.cache
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.csproj.CoreCompileInputs.cache
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.dll
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.pdb

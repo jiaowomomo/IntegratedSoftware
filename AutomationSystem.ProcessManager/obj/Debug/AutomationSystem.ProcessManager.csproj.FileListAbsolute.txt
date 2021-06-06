@@ -1,4 +1,0 @@
-F:\工作\软件编程\研发软件\AutomationSystem\AutomationSystem\bin\Debug\AutomationSystem.ProcessManager.dll
-F:\工作\软件编程\研发软件\AutomationSystem\AutomationSystem\bin\Debug\AutomationSystem.ProcessManager.pdb
-F:\工作\软件编程\研发软件\AutomationSystem\AutomationSystem.ProcessManager\obj\Debug\AutomationSystem.ProcessManager.dll
-F:\工作\软件编程\研发软件\AutomationSystem\AutomationSystem.ProcessManager\obj\Debug\AutomationSystem.ProcessManager.pdb

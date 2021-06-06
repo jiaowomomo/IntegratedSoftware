@@ -1,4 +1,4 @@
-﻿using AutomationSystem.Halcon;
+﻿using Halcon.Functions;
 using HalconDotNet;
 using System;
 using System.Collections.Generic;

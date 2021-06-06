@@ -1,0 +1,11 @@
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Controls\obj\Debug\Controls.csproj.GenerateResource.cache
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Controls\obj\Debug\Controls.csproj.CoreCompileInputs.cache
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.Properties.Resources.resources
+C:\工作\软件开发\研发软件\AutomationSystem\BuildDLL\Controls.dll
+C:\工作\软件开发\研发软件\AutomationSystem\BuildDLL\Controls.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Controls\obj\Debug\Controls.dll
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Controls\obj\Debug\Controls.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.PropertiesViewer.resources
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.ToggleButton.resources
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.TrackBarEditor.resources
+C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Controls\obj\Debug\Controls.csprojAssemblyReference.cache

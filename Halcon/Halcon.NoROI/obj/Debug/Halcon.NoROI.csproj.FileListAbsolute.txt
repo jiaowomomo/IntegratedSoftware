@@ -1,0 +1,14 @@
+C:\工作\软件开发\研发软件\AutomationSystem\ExternTool\Halcon.NoROI.dll
+C:\工作\软件开发\研发软件\AutomationSystem\ExternTool\Halcon.NoROI.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.NoROIForm.resources
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.csproj.GenerateResource.cache
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.csproj.CoreCompileInputs.cache
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.dll
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.pdb
+C:\Users\10073\Desktop\AutomationSystem\ExternTool\Halcon.NoROI.dll
+C:\Users\10073\Desktop\AutomationSystem\ExternTool\Halcon.NoROI.pdb
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.NoROIForm.resources
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.csproj.GenerateResource.cache
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.csproj.CoreCompileInputs.cache
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.dll
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.pdb

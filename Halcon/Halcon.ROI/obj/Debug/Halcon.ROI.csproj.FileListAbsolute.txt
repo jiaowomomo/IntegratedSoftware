@@ -1,0 +1,14 @@
+C:\工作\软件开发\研发软件\AutomationSystem\ExternTool\Halcon.ROI.dll
+C:\工作\软件开发\研发软件\AutomationSystem\ExternTool\Halcon.ROI.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.ROIForm.resources
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.csproj.GenerateResource.cache
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.csproj.CoreCompileInputs.cache
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.dll
+C:\工作\软件开发\研发软件\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.pdb
+C:\Users\10073\Desktop\AutomationSystem\ExternTool\Halcon.ROI.dll
+C:\Users\10073\Desktop\AutomationSystem\ExternTool\Halcon.ROI.pdb
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.ROIForm.resources
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.csproj.GenerateResource.cache
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.csproj.CoreCompileInputs.cache
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.dll
+C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.pdb

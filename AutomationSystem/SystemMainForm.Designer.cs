@@ -93,7 +93,7 @@
             // 
             // toolStripTextTool
             // 
-            this.toolStripTextTool.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripTextTool.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.toolStripTextTool.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripTextTool.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStripTextTool.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -104,7 +104,7 @@
             this.toolStripDropDownButton2});
             this.toolStripTextTool.Location = new System.Drawing.Point(0, 0);
             this.toolStripTextTool.Name = "toolStripTextTool";
-            this.toolStripTextTool.Size = new System.Drawing.Size(1166, 27);
+            this.toolStripTextTool.Size = new System.Drawing.Size(1312, 27);
             this.toolStripTextTool.TabIndex = 1;
             this.toolStripTextTool.Text = "toolStrip1";
             // 
@@ -132,28 +132,28 @@
             this.toolStripMenuItemNewProject.Name = "toolStripMenuItemNewProject";
             this.toolStripMenuItemNewProject.Size = new System.Drawing.Size(159, 26);
             this.toolStripMenuItemNewProject.Text = "新建工程";
-            this.toolStripMenuItemNewProject.Click += new System.EventHandler(this.toolStripMenuItemNewProject_Click);
+            this.toolStripMenuItemNewProject.Click += new System.EventHandler(this.ToolStripMenuItemNewProject_Click);
             // 
             // toolStripMenuItemOpenProject
             // 
             this.toolStripMenuItemOpenProject.Name = "toolStripMenuItemOpenProject";
             this.toolStripMenuItemOpenProject.Size = new System.Drawing.Size(159, 26);
             this.toolStripMenuItemOpenProject.Text = "打开工程";
-            this.toolStripMenuItemOpenProject.Click += new System.EventHandler(this.toolStripMenuItemOpenProject_Click);
+            this.toolStripMenuItemOpenProject.Click += new System.EventHandler(this.ToolStripMenuItemOpenProject_Click);
             // 
             // toolStripMenuItemSaveProject
             // 
             this.toolStripMenuItemSaveProject.Name = "toolStripMenuItemSaveProject";
             this.toolStripMenuItemSaveProject.Size = new System.Drawing.Size(159, 26);
             this.toolStripMenuItemSaveProject.Text = "保存工程";
-            this.toolStripMenuItemSaveProject.Click += new System.EventHandler(this.toolStripMenuItemSaveProject_Click);
+            this.toolStripMenuItemSaveProject.Click += new System.EventHandler(this.ToolStripMenuItemSaveProject_Click);
             // 
             // toolStripMenuItemSaveAs
             // 
             this.toolStripMenuItemSaveAs.Name = "toolStripMenuItemSaveAs";
             this.toolStripMenuItemSaveAs.Size = new System.Drawing.Size(159, 26);
             this.toolStripMenuItemSaveAs.Text = "另存为工程";
-            this.toolStripMenuItemSaveAs.Click += new System.EventHandler(this.toolStripMenuItemSaveAs_Click);
+            this.toolStripMenuItemSaveAs.Click += new System.EventHandler(this.ToolStripMenuItemSaveAs_Click);
             // 
             // toolStripMenuItem5
             // 
@@ -199,42 +199,42 @@
             this.toolStripMenuItemNewWindow.Name = "toolStripMenuItemNewWindow";
             this.toolStripMenuItemNewWindow.Size = new System.Drawing.Size(174, 26);
             this.toolStripMenuItemNewWindow.Text = "新建窗口";
-            this.toolStripMenuItemNewWindow.Click += new System.EventHandler(this.toolStripMenuItemNewWindow_Click);
+            this.toolStripMenuItemNewWindow.Click += new System.EventHandler(this.ToolStripMenuItemNewWindow_Click);
             // 
             // toolStripMenuItemSetWindowName
             // 
             this.toolStripMenuItemSetWindowName.Name = "toolStripMenuItemSetWindowName";
             this.toolStripMenuItemSetWindowName.Size = new System.Drawing.Size(174, 26);
             this.toolStripMenuItemSetWindowName.Text = "设置窗口别名";
-            this.toolStripMenuItemSetWindowName.Click += new System.EventHandler(this.toolStripMenuItemSetWindowName_Click);
+            this.toolStripMenuItemSetWindowName.Click += new System.EventHandler(this.ToolStripMenuItemSetWindowName_Click);
             // 
             // toolStripMenuItemSelectWindow
             // 
             this.toolStripMenuItemSelectWindow.Name = "toolStripMenuItemSelectWindow";
             this.toolStripMenuItemSelectWindow.Size = new System.Drawing.Size(174, 26);
             this.toolStripMenuItemSelectWindow.Text = "流程窗口选择";
-            this.toolStripMenuItemSelectWindow.Click += new System.EventHandler(this.toolStripMenuItemSelectWindow_Click);
+            this.toolStripMenuItemSelectWindow.Click += new System.EventHandler(this.ToolStripMenuItemSelectWindow_Click);
             // 
             // toolStripMenuItemDataInput
             // 
             this.toolStripMenuItemDataInput.Name = "toolStripMenuItemDataInput";
             this.toolStripMenuItemDataInput.Size = new System.Drawing.Size(174, 26);
             this.toolStripMenuItemDataInput.Text = "数据输入查看";
-            this.toolStripMenuItemDataInput.Click += new System.EventHandler(this.toolStripMenuItemDataInput_Click);
+            this.toolStripMenuItemDataInput.Click += new System.EventHandler(this.ToolStripMenuItemDataInput_Click);
             // 
             // toolStripMenuItemDataOutput
             // 
             this.toolStripMenuItemDataOutput.Name = "toolStripMenuItemDataOutput";
             this.toolStripMenuItemDataOutput.Size = new System.Drawing.Size(174, 26);
             this.toolStripMenuItemDataOutput.Text = "数据输出查看";
-            this.toolStripMenuItemDataOutput.Click += new System.EventHandler(this.toolStripMenuItemDataOutput_Click);
+            this.toolStripMenuItemDataOutput.Click += new System.EventHandler(this.ToolStripMenuItemDataOutput_Click);
             // 
             // toolStripMenuItemCodeEdit
             // 
             this.toolStripMenuItemCodeEdit.Name = "toolStripMenuItemCodeEdit";
             this.toolStripMenuItemCodeEdit.Size = new System.Drawing.Size(174, 26);
             this.toolStripMenuItemCodeEdit.Text = "脚本编辑";
-            this.toolStripMenuItemCodeEdit.Click += new System.EventHandler(this.toolStripMenuItemCodeEdit_Click);
+            this.toolStripMenuItemCodeEdit.Click += new System.EventHandler(this.ToolStripMenuItemCodeEdit_Click);
             // 
             // toolStripDropDownButtonView
             // 
@@ -283,27 +283,26 @@
             this.toolStripMenuItemSerialPort.Name = "toolStripMenuItemSerialPort";
             this.toolStripMenuItemSerialPort.Size = new System.Drawing.Size(159, 26);
             this.toolStripMenuItemSerialPort.Text = "串口通讯";
-            this.toolStripMenuItemSerialPort.Click += new System.EventHandler(this.toolStripMenuItemSerialPort_Click);
+            this.toolStripMenuItemSerialPort.Click += new System.EventHandler(this.ToolStripMenuItemSerialPort_Click);
             // 
             // toolStripMenuItemServer
             // 
             this.toolStripMenuItemServer.Name = "toolStripMenuItemServer";
             this.toolStripMenuItemServer.Size = new System.Drawing.Size(159, 26);
             this.toolStripMenuItemServer.Text = "网络服务器";
-            this.toolStripMenuItemServer.Click += new System.EventHandler(this.toolStripMenuItemServer_Click);
+            this.toolStripMenuItemServer.Click += new System.EventHandler(this.ToolStripMenuItemServer_Click);
             // 
             // toolStripMenuItemClient
             // 
             this.toolStripMenuItemClient.Name = "toolStripMenuItemClient";
             this.toolStripMenuItemClient.Size = new System.Drawing.Size(159, 26);
             this.toolStripMenuItemClient.Text = "网络客户端";
-            this.toolStripMenuItemClient.Click += new System.EventHandler(this.toolStripMenuItemClient_Click);
+            this.toolStripMenuItemClient.Click += new System.EventHandler(this.ToolStripMenuItemClient_Click);
             // 
             // toolStripIconTool
             // 
-            this.toolStripIconTool.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripIconTool.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.toolStripIconTool.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStripIconTool.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStripIconTool.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonNewProject,
             this.toolStripButtonOpenProject,
@@ -318,7 +317,7 @@
             this.toolStripButtonStopCode});
             this.toolStripIconTool.Location = new System.Drawing.Point(0, 27);
             this.toolStripIconTool.Name = "toolStripIconTool";
-            this.toolStripIconTool.Size = new System.Drawing.Size(1166, 27);
+            this.toolStripIconTool.Size = new System.Drawing.Size(1312, 27);
             this.toolStripIconTool.TabIndex = 2;
             this.toolStripIconTool.Text = "toolStrip2";
             // 
@@ -330,7 +329,7 @@
             this.toolStripButtonNewProject.Name = "toolStripButtonNewProject";
             this.toolStripButtonNewProject.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonNewProject.Text = "新建工程";
-            this.toolStripButtonNewProject.Click += new System.EventHandler(this.toolStripButtonNewProject_Click);
+            this.toolStripButtonNewProject.Click += new System.EventHandler(this.ToolStripButtonNewProject_Click);
             // 
             // toolStripButtonOpenProject
             // 
@@ -340,7 +339,7 @@
             this.toolStripButtonOpenProject.Name = "toolStripButtonOpenProject";
             this.toolStripButtonOpenProject.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonOpenProject.Text = "打开工程";
-            this.toolStripButtonOpenProject.Click += new System.EventHandler(this.toolStripButtonOpenProject_Click);
+            this.toolStripButtonOpenProject.Click += new System.EventHandler(this.ToolStripButtonOpenProject_Click);
             // 
             // toolStripButtonSaveProject
             // 
@@ -350,7 +349,7 @@
             this.toolStripButtonSaveProject.Name = "toolStripButtonSaveProject";
             this.toolStripButtonSaveProject.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonSaveProject.Text = "保存工程";
-            this.toolStripButtonSaveProject.Click += new System.EventHandler(this.toolStripButtonSaveProject_Click);
+            this.toolStripButtonSaveProject.Click += new System.EventHandler(this.ToolStripButtonSaveProject_Click);
             // 
             // toolStripSeparator3
             // 
@@ -365,7 +364,7 @@
             this.toolStripButtonStart.Name = "toolStripButtonStart";
             this.toolStripButtonStart.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonStart.Text = "运行流程";
-            this.toolStripButtonStart.Click += new System.EventHandler(this.toolStripButtonStart_Click);
+            this.toolStripButtonStart.Click += new System.EventHandler(this.ToolStripButtonStart_Click);
             // 
             // toolStripButtonPause
             // 
@@ -376,7 +375,7 @@
             this.toolStripButtonPause.Name = "toolStripButtonPause";
             this.toolStripButtonPause.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonPause.Text = "暂停流程";
-            this.toolStripButtonPause.Click += new System.EventHandler(this.toolStripButtonPause_Click);
+            this.toolStripButtonPause.Click += new System.EventHandler(this.ToolStripButtonPause_Click);
             // 
             // toolStripButtonStop
             // 
@@ -387,7 +386,7 @@
             this.toolStripButtonStop.Name = "toolStripButtonStop";
             this.toolStripButtonStop.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonStop.Text = "终止流程";
-            this.toolStripButtonStop.Click += new System.EventHandler(this.toolStripButtonStop_Click);
+            this.toolStripButtonStop.Click += new System.EventHandler(this.ToolStripButtonStop_Click);
             // 
             // toolStripSeparator4
             // 
@@ -402,7 +401,7 @@
             this.toolStripButtonRunCode.Name = "toolStripButtonRunCode";
             this.toolStripButtonRunCode.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonRunCode.Text = "运行脚本";
-            this.toolStripButtonRunCode.Click += new System.EventHandler(this.toolStripButtonRunCode_Click);
+            this.toolStripButtonRunCode.Click += new System.EventHandler(this.ToolStripButtonRunCode_Click);
             // 
             // toolStripButtonPauseCode
             // 
@@ -413,7 +412,7 @@
             this.toolStripButtonPauseCode.Name = "toolStripButtonPauseCode";
             this.toolStripButtonPauseCode.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonPauseCode.Text = "暂停脚本";
-            this.toolStripButtonPauseCode.Click += new System.EventHandler(this.toolStripButtonPauseCode_Click);
+            this.toolStripButtonPauseCode.Click += new System.EventHandler(this.ToolStripButtonPauseCode_Click);
             // 
             // toolStripButtonStopCode
             // 
@@ -424,7 +423,7 @@
             this.toolStripButtonStopCode.Name = "toolStripButtonStopCode";
             this.toolStripButtonStopCode.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonStopCode.Text = "终止脚本";
-            this.toolStripButtonStopCode.Click += new System.EventHandler(this.toolStripButtonStopCode_Click);
+            this.toolStripButtonStopCode.Click += new System.EventHandler(this.ToolStripButtonStopCode_Click);
             // 
             // statusStripStatusTool
             // 
@@ -432,9 +431,10 @@
             this.statusStripStatusTool.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripStatusTool.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStripStatusTool.Location = new System.Drawing.Point(0, 678);
+            this.statusStripStatusTool.Location = new System.Drawing.Point(0, 864);
             this.statusStripStatusTool.Name = "statusStripStatusTool";
-            this.statusStripStatusTool.Size = new System.Drawing.Size(1166, 25);
+            this.statusStripStatusTool.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
+            this.statusStripStatusTool.Size = new System.Drawing.Size(1312, 25);
             this.statusStripStatusTool.TabIndex = 3;
             this.statusStripStatusTool.Text = "statusStrip1";
             // 
@@ -449,8 +449,9 @@
             this.dockPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dockPanelMain.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow;
             this.dockPanelMain.Location = new System.Drawing.Point(0, 0);
+            this.dockPanelMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dockPanelMain.Name = "dockPanelMain";
-            this.dockPanelMain.Size = new System.Drawing.Size(1166, 624);
+            this.dockPanelMain.Size = new System.Drawing.Size(1312, 810);
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -506,19 +507,21 @@
             this.panel1.Controls.Add(this.dockPanelMain);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 54);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1166, 624);
+            this.panel1.Size = new System.Drawing.Size(1312, 810);
             this.panel1.TabIndex = 6;
             // 
             // SystemMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1166, 703);
+            this.ClientSize = new System.Drawing.Size(1312, 889);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStripStatusTool);
             this.Controls.Add(this.toolStripIconTool);
             this.Controls.Add(this.toolStripTextTool);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SystemMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

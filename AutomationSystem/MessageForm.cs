@@ -13,19 +13,9 @@ namespace AutomationSystem
 {
     public partial class MessageForm : DockContent
     {
-        private static MessageForm _instance = null;
+        private static readonly Lazy<MessageForm> m_instacne = new Lazy<MessageForm>(() => new MessageForm());
 
-        public static MessageForm Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new MessageForm();
-                }
-                return _instance;
-            }
-        }
+        public static MessageForm Instance { get => m_instacne.Value; }
 
         private MessageForm()
         {

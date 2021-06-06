@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.hShowWindow1 = new AutomationSystem.UI.HShowWindow();
+            this.hShowWindow1 = new UIControl.HalconVision.HShowWindow();
             this.SuspendLayout();
             // 
             // hShowWindow1
@@ -56,6 +56,6 @@
 
         #endregion
 
-        private UI.HShowWindow hShowWindow1;
+        private UIControl.HalconVision.HShowWindow hShowWindow1;
     }
 }
