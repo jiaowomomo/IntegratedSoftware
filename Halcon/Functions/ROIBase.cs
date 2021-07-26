@@ -12,7 +12,10 @@ namespace Halcon.Functions
     {
         private ROIStatus m_ROIStatus = ROIStatus.UNION;
 
-        public HDrawingObject DrawingObject { get; set; }
+        [NonSerialized]
+        private HDrawingObject m_drawingObject = null;
+
+        public HDrawingObject DrawingObject { get => m_drawingObject; set => m_drawingObject = value; }
         public ROIStatus Status { get => m_ROIStatus; set => m_ROIStatus = value; }
 
         public HRegion GetRegion()

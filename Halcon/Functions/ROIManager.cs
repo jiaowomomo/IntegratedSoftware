@@ -44,7 +44,7 @@ namespace Halcon.Functions
 
         public ROIBase GetROIByIndex(int index)
         {
-            if (index >= 0 && index < m_listROIs.Count - 1)
+            if (index >= 0 && index < m_listROIs.Count)
             {
                 return m_listROIs[index];
             }

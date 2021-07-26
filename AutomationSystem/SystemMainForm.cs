@@ -301,19 +301,38 @@ namespace AutomationSystem
 
         private void NewProject()
         {
-            ZipHelper.UnZip(m_strDefaultConfigFile, m_strTempPath);
-            m_listWindows.Load(m_strTempWindowConfigPath);
-            m_nWindowsCount = m_listWindows.ProcessCount;
-            m_nLoadedWindowsCount = 0;
-            m_listSelectWindows.Load(m_strTempSelectConfigPath);
-            InitDockPanel();
-            dockPanelMain.LoadFromXml(m_strTempDockDefaultConfigPath, new DeserializeDockContent(GetDeserializeDockContent));
-            for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
+            if (File.Exists(m_strDefaultConfigFile))
             {
-                GlobalObjectList.ImageListObject[i].Load($"{m_strTempProcessPath}{i}.handle");
+                ZipHelper.UnZip(m_strDefaultConfigFile, m_strTempPath);
+                m_listWindows.Load(m_strTempWindowConfigPath);
+                m_nWindowsCount = m_listWindows.ProcessCount;
+                m_nLoadedWindowsCount = 0;
+                m_listSelectWindows.Load(m_strTempSelectConfigPath);
+                InitDockPanel();
+                dockPanelMain.LoadFromXml(m_strTempDockDefaultConfigPath, new DeserializeDockContent(GetDeserializeDockContent));
+                for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
+                {
+                    GlobalObjectList.ImageListObject[i].Load($"{m_strTempProcessPath}{i}.handle");
+                }
+                this.Text = "AutomationSystem";
+                m_strCurrentFile = string.Empty;
             }
-            this.Text = "AutomationSystem";
-            m_strCurrentFile = string.Empty;
+            else
+            {
+                m_listWindows.CreateNewProcess();
+                m_nWindowsCount = 0;
+                m_nLoadedWindowsCount = 0;
+                InitDockPanel();
+                m_listSelectWindows.CreateNewProcess();
+                for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
+                {
+                    m_listSelectWindows.AddProcess(0);
+                    GlobalObjectList.ImageListObject[i].CreateNewProcess();
+                }
+                this.Text = "AutomationSystem";
+                m_strCurrentFile = string.Empty;
+                ResetFormLocation();
+            }
         }
 
         private void InitDockPanel()
@@ -366,6 +385,7 @@ namespace AutomationSystem
             {
                 GlobalObjectList.ImageListObject[i].Load($"{m_strTempProcessPath}{i}.handle");
             }
+            GlobalObjectList.ImageListObject[0].OnProcessChanged(null, null);
             this.Text = "AutomationSystem---" + filePath;
             m_strCurrentFile = filePath;
         }
