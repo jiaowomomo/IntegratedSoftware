@@ -9,11 +9,16 @@ using System.Windows.Forms;
 using HalconDotNet;
 using static HalconDotNet.HDrawingObject;
 using System.IO;
+using System.Drawing.Design;
 
 namespace Halcon.Functions
 {
     public partial class HObjectViewer : UserControl
     {
+        //图像改变事件
+        public delegate void ImageChangedEventHandler(bool isZoom, EventArgs e);
+        public delegate void ToolChangedEventHandler(object sender, ToolEventArgs e);
+
         private bool m_bIsShowToolbar = true;
         [Category("自定义"), Description("是否展示工具栏"), Browsable(true)]
         public bool ShowToolbar
@@ -24,6 +29,40 @@ namespace Halcon.Functions
                 m_bIsShowToolbar = value;
                 this.tableLayoutPanel1.RowStyles[0].Height = m_bIsShowToolbar ? 30F : 0F;
                 this.tableLayoutPanel1.Height = m_bIsShowToolbar ? 60 : 30;
+            }
+        }
+
+        private List<bool> m_viewerToolEnableList = new List<bool>(Enum.GetNames(typeof(ViewerTools)).Length);
+        [Category("自定义"), Description("设置工具栏"), Editor(typeof(ViewerToolEditor), typeof(UITypeEditor))]
+        public List<bool> ViewerToolEnableList
+        {
+            get { return m_viewerToolEnableList; }
+            set
+            {
+                m_viewerToolEnableList = value;
+                if (m_bIsShowToolbar)
+                {
+                    for (int i = 0; i < m_viewerToolEnableList.Count; i++)
+                    {
+                        if (i < this.toolStrip1.Items.Count)
+                        {
+                            this.toolStrip1.Items[i].Enabled = m_viewerToolEnableList[i];
+                            this.toolStrip1.Items[i].Visible = m_viewerToolEnableList[i];
+                        }
+                    }
+                }
+            }
+        }
+
+        private int m_nROIMaxCount = 1;
+        [Category("自定义"), Description("ROI最大数量"), Browsable(true)]
+        public int ROIMaxCount
+        {
+            get { return m_nROIMaxCount; }
+            set
+            {
+                m_nROIMaxCount = value;
+                SetROICount(m_nROIMaxCount);
             }
         }
 
@@ -42,10 +81,24 @@ namespace Halcon.Functions
             }
         }
 
-        private HTuple m_windowID, m_imageWidth, m_imageHeight;
-        private double m_rowMouseDown;//鼠标按下时的行坐标
-        private double m_colMouseDown;//鼠标按下时的列坐标
+        private bool m_bIsShowCross = false;
+        [Category("自定义"), Description("是否展示十字架"), Browsable(true)]
+        public bool IsShowCross
+        {
+            get { return m_bIsShowCross; }
+            set
+            {
+                m_bIsShowCross = value;
+                ResetWndCtrl(false);
+            }
+        }
+
+        private bool m_bIsSetCross = false;
+        [Category("自定义"), Description("是否设置十字架"), Browsable(true)]
+        public bool IsSetCross { get => m_bIsSetCross; set => m_bIsSetCross = value; }
+
         private HImage m_sourceImage;//图像变量
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public HImage SourceImage
         {
             get { return m_sourceImage; }
@@ -69,17 +122,9 @@ namespace Halcon.Functions
             }
         }
 
-        private bool m_bIsShowCross = false;
-
-        public bool IsShowCross
-        {
-            get { return m_bIsShowCross; }
-            set
-            {
-                m_bIsShowCross = value;
-                ResetWndCtrl(false);
-            }
-        }
+        private HTuple m_windowID, m_imageWidth, m_imageHeight;
+        private double m_rowMouseDown;//鼠标按下时的行坐标
+        private double m_colMouseDown;//鼠标按下时的列坐标
 
         private bool m_bCanImageMove = false;
         private double m_dbCrossRow = 0;
@@ -91,23 +136,33 @@ namespace Halcon.Functions
         private List<ShowObject> m_listShowObjects = new List<ShowObject>();//显示对象
         private List<ShowText> m_listShowTexts = new List<ShowText>();//显示文字             
         private ROIManager m_roiManager = new ROIManager();//ROI集合
-        private ROIStatus m_ROIStatus = ROIStatus.UNION;
-        private HDrawingObjectCallbackClass OnDragDrawingObject = null;
-        private HDrawingObjectCallbackClass OnAttachDrawingObject = null;
-        private HDrawingObjectCallbackClass OnResizeDrawingObject = null;
-        private Action ExecuteImageHandle;
+        private ROIStatus m_roiStatus = ROIStatus.UNION;
+        private HDrawingObjectCallbackClass m_onDragDrawingObject = null;
+        private HDrawingObjectCallbackClass m_onAttachDrawingObject = null;
+        private HDrawingObjectCallbackClass m_onResizeDrawingObject = null;
+        private HDrawingObjectCallbackClass m_onSelectDrawingObject = null;
+        private Action m_executeImageHandle;
 
-        public bool IsSetCross { get; set; } = false;
         public HWindowControl ViewerInstance { get => ViewerControl; }
 
-        //图像改变事件
-        public delegate void ImageChangedEventHandler(bool isZoom, EventArgs e);
         public event ImageChangedEventHandler OnImageChanged;
-
-        public delegate void ToolChangedEventHandler(object sender, ToolEventArgs e);
         public event ToolChangedEventHandler OnToolChanged;
 
-        public HDrawingObjectCallbackClass OnSelectDrawingObject = null;
+        public HObjectViewer()
+        {
+            InitializeComponent();
+            try
+            {
+                HOperatorSet.SetSystem("graphic_stack_size", 100000);//增加堆栈存储内存
+                m_windowID = ViewerInstance.HalconWindow;
+                OnImageChanged += Image_ChangeEvent;
+                OnToolChanged += Tool_ChangeEvent;
+                m_onSelectDrawingObject += OnSelectObject;
+            }
+            catch
+            {
+            }
+        }
 
         private void Image_ChangeEvent(bool isZoom, EventArgs e)
         {
@@ -191,22 +246,6 @@ namespace Halcon.Functions
             //}
         }
 
-        public HObjectViewer()
-        {
-            InitializeComponent();
-            try
-            {
-                HOperatorSet.SetSystem("graphic_stack_size", 100000);//增加堆栈存储内存
-                m_windowID = ViewerInstance.HalconWindow;
-                OnImageChanged += Image_ChangeEvent;
-                OnToolChanged += Tool_ChangeEvent;
-                OnSelectDrawingObject += OnSelectObject;
-            }
-            catch
-            {
-            }
-        }
-
         private void ViewerControl_HMouseDown(object sender, HalconDotNet.HMouseEventArgs e)
         {
             if (m_imageHeight != null)
@@ -234,7 +273,7 @@ namespace Halcon.Functions
                         HTuple Row, Column, Button;
                         HOperatorSet.GetMposition(m_windowID, out Row, out Column, out Button);//获取当前鼠标坐标
                         HDrawingObject hDrawingObject = HDrawingObject.CreateDrawingObject(HDrawingObject.HDrawingObjectType.CIRCLE, Row.D, Column.D, 70);
-                        ROIBase rOIBase = new ROICircle() { DrawingObject = hDrawingObject, Status = m_ROIStatus };
+                        ROIBase rOIBase = new ROICircle() { DrawingObject = hDrawingObject, Status = m_roiStatus };
                         AttachDrawObj(rOIBase);
                         ActiveTool = ViewerTools.Arrow;
                     }
@@ -243,7 +282,7 @@ namespace Halcon.Functions
                         HTuple Row, Column, Button;
                         HOperatorSet.GetMposition(m_windowID, out Row, out Column, out Button);//获取当前鼠标坐标
                         HDrawingObject hDrawingObject = HDrawingObject.CreateDrawingObject(HDrawingObject.HDrawingObjectType.ELLIPSE, Row.D, Column.D, 0, 70, 70);
-                        ROIBase rOIBase = new ROIEllipse() { DrawingObject = hDrawingObject, Status = m_ROIStatus };
+                        ROIBase rOIBase = new ROIEllipse() { DrawingObject = hDrawingObject, Status = m_roiStatus };
                         AttachDrawObj(rOIBase);
                         ActiveTool = ViewerTools.Arrow;
                     }
@@ -252,7 +291,7 @@ namespace Halcon.Functions
                         HTuple Row, Column, Button;
                         HOperatorSet.GetMposition(m_windowID, out Row, out Column, out Button);//获取当前鼠标坐标
                         HDrawingObject hDrawingObject = HDrawingObject.CreateDrawingObject(HDrawingObject.HDrawingObjectType.RECTANGLE2, Row.D, Column.D, 0, 70, 70);
-                        ROIBase rOIBase = new ROIRotateRectangle() { DrawingObject = hDrawingObject, Status = m_ROIStatus };
+                        ROIBase rOIBase = new ROIRotateRectangle() { DrawingObject = hDrawingObject, Status = m_roiStatus };
                         AttachDrawObj(rOIBase);
                         ActiveTool = ViewerTools.Arrow;
                     }
@@ -261,7 +300,7 @@ namespace Halcon.Functions
                         HTuple Row, Column, Button;
                         HOperatorSet.GetMposition(m_windowID, out Row, out Column, out Button);//获取当前鼠标坐标
                         HDrawingObject hDrawingObject = HDrawingObject.CreateDrawingObject(HDrawingObject.HDrawingObjectType.RECTANGLE1, Row.D - 50, Column.D - 50, Row.D + 50, Column.D + 50);
-                        ROIBase rOIBase = new ROIRectangle() { DrawingObject = hDrawingObject, Status = m_ROIStatus };
+                        ROIBase rOIBase = new ROIRectangle() { DrawingObject = hDrawingObject, Status = m_roiStatus };
                         AttachDrawObj(rOIBase);
                         ActiveTool = ViewerTools.Arrow;
                     }
@@ -405,9 +444,9 @@ namespace Halcon.Functions
             {
                 if (m_bIsROISelected)
                 {
-                    if (ExecuteImageHandle != null)
+                    if (m_executeImageHandle != null)
                     {
-                        ExecuteImageHandle.Invoke();
+                        m_executeImageHandle.Invoke();
                     }
                     m_bIsROISelected = false;
                 }
@@ -480,6 +519,8 @@ namespace Halcon.Functions
             {
                 m_listTools[i].ToolTipText = m_listTools[i].Name.Replace("tsb", "");
             }
+
+            SetViewerControlSize();
         }
 
         private void ViewerControl_Resize(object sender, EventArgs e)
@@ -536,21 +577,21 @@ namespace Halcon.Functions
             if (m_roiManager.AddROI(obj))
             {
                 obj.DrawingObject.SetDrawingObjectParams("color", "yellow");
-                if (OnDragDrawingObject != null)
+                if (m_onDragDrawingObject != null)
                 {
-                    obj.DrawingObject.OnDrag(OnDragDrawingObject);
+                    obj.DrawingObject.OnDrag(m_onDragDrawingObject);
                 }
-                if (OnAttachDrawingObject != null)
+                if (m_onAttachDrawingObject != null)
                 {
-                    obj.DrawingObject.OnAttach(OnAttachDrawingObject);
+                    obj.DrawingObject.OnAttach(m_onAttachDrawingObject);
                 }
-                if (OnResizeDrawingObject != null)
+                if (m_onResizeDrawingObject != null)
                 {
-                    obj.DrawingObject.OnResize(OnResizeDrawingObject);
+                    obj.DrawingObject.OnResize(m_onResizeDrawingObject);
                 }
-                if (OnSelectDrawingObject != null)
+                if (m_onSelectDrawingObject != null)
                 {
-                    obj.DrawingObject.OnSelect(OnSelectDrawingObject);
+                    obj.DrawingObject.OnSelect(m_onSelectDrawingObject);
                 }
                 ViewerControl.HalconWindow.AttachDrawingObjectToWindow(obj.DrawingObject);
                 //HOperatorSet.AttachDrawingObjectToWindow(WindowID, obj.m_DrawingObject);
@@ -563,13 +604,13 @@ namespace Halcon.Functions
 
         private void SetImageHandle(HDrawingObject.HDrawingObjectCallbackClass hDrawingObjectCallbackClass)
         {
-            OnDragDrawingObject += hDrawingObjectCallbackClass;
-            OnResizeDrawingObject += hDrawingObjectCallbackClass;
+            m_onDragDrawingObject += hDrawingObjectCallbackClass;
+            m_onResizeDrawingObject += hDrawingObjectCallbackClass;
         }
 
         public void SetImageHandle(Action action)
         {
-            ExecuteImageHandle += action;
+            m_executeImageHandle += action;
         }
 
         //临时解决控件尺寸变化报错
@@ -577,10 +618,15 @@ namespace Halcon.Functions
         {
             try
             {
-                ViewerControl.Size = new Size(this.Width, this.Height - tableLayoutPanel1.Height);
+                SetViewerControlSize();
             }
             catch
             { }
+        }
+
+        private void SetViewerControlSize()
+        {
+            ViewerControl.Size = new Size(this.Width, this.Height - tableLayoutPanel1.Height);
         }
 
         private void tsbClear_Click(object sender, EventArgs e)
@@ -737,19 +783,19 @@ namespace Halcon.Functions
         private void toolStripMenuItemUNION_Click(object sender, EventArgs e)
         {
             toolStripDropDownButtonStatus.Image = Properties.Resources.UNION;
-            m_ROIStatus = ROIStatus.UNION;
+            m_roiStatus = ROIStatus.UNION;
         }
 
         private void toolStripMenuItemINTERSECTION_Click(object sender, EventArgs e)
         {
             toolStripDropDownButtonStatus.Image = Properties.Resources.INTERSECTION;
-            m_ROIStatus = ROIStatus.INTERSECTION;
+            m_roiStatus = ROIStatus.INTERSECTION;
         }
 
         private void toolStripMenuItemDIFFERENCE_Click(object sender, EventArgs e)
         {
             toolStripDropDownButtonStatus.Image = Properties.Resources.DIFFERENCE;
-            m_ROIStatus = ROIStatus.DIFFERENCE;
+            m_roiStatus = ROIStatus.DIFFERENCE;
         }
 
         public void DeleteROI(int index)

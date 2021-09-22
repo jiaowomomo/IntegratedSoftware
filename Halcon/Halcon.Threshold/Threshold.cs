@@ -117,7 +117,7 @@ namespace Halcon.Threshold
             HImage binary;
             if (source == null || source.Key == IntPtr.Zero)
             {
-                throw new RunException(1);
+                throw new RunException(RunExceptionType.NoInputImage);
             }
             threshold = source.Threshold(dbThresholdMin, dbThresholdMax);
             HTuple width, height;

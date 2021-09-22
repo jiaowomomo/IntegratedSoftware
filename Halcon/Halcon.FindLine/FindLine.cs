@@ -169,7 +169,7 @@ namespace Halcon.FindLine
                 HTuple width, height;
                 if (source == null || source.Key == IntPtr.Zero)
                 {
-                    throw new RunException(1);
+                    throw new RunException(RunExceptionType.NoInputImage);
                 }
                 source.GetImageSize(out width, out height);
                 double ModelX = GetDataManager.GetInputDouble("轮廓中心X");

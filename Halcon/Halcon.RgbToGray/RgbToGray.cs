@@ -34,7 +34,7 @@ namespace Halcon.RgbToGray
                 {
                     gray.Dispose();
                 }
-                throw new RunException(1);
+                throw new RunException(RunExceptionType.NoInputImage);
             }
             if (source.CountChannels() == 3)
             {

@@ -10,13 +10,13 @@ namespace Halcon.Functions
     [Serializable]
     public abstract class ROIBase
     {
-        private ROIStatus m_ROIStatus = ROIStatus.UNION;
+        private ROIStatus m_roiStatus = ROIStatus.UNION;
 
         [NonSerialized]
         private HDrawingObject m_drawingObject = null;
 
         public HDrawingObject DrawingObject { get => m_drawingObject; set => m_drawingObject = value; }
-        public ROIStatus Status { get => m_ROIStatus; set => m_ROIStatus = value; }
+        public ROIStatus Status { get => m_roiStatus; set => m_roiStatus = value; }
 
         public HRegion GetRegion()
         {

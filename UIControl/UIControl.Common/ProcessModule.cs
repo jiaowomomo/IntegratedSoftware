@@ -54,6 +54,9 @@ namespace UIControl.Common
                 case RunStatus.NG:
                     pictureBox2.Image = Properties.Resources.NG;
                     break;
+                case RunStatus.Exception:
+                    pictureBox2.Image = Properties.Resources.Exception;
+                    break;
                 default:
                     pictureBox2.Image = Properties.Resources.Wait;
                     break;

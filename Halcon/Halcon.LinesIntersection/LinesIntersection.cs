@@ -60,7 +60,7 @@ namespace Halcon.LinesIntersection
             }
             else
             {
-                throw new RunException(3);
+                throw new RunException(RunExceptionType.TwoLineNumberNotEqual);
             }
         }
 

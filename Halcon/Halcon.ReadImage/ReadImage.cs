@@ -45,7 +45,7 @@ namespace Halcon.ReadImage
             }
             else
             {
-                throw new RunException(5);
+                throw new RunException(RunExceptionType.FilePathNotExist);
             }
         }
 

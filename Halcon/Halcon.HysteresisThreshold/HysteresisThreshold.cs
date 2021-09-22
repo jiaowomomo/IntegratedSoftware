@@ -128,7 +128,7 @@ namespace Halcon.HysteresisThreshold
             HImage binary;
             if (source == null || source.Key == IntPtr.Zero)
             {
-                throw new RunException(1);
+                throw new RunException(RunExceptionType.NoInputImage);
             }
             threshold = source.HysteresisThreshold(nThresholdMin, nThresholdMax, nLength);
             HTuple width, height;

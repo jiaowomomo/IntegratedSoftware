@@ -644,7 +644,6 @@
             this.hObjectViewer1.Name = "hObjectViewer1";
             this.hObjectViewer1.ShowToolbar = true;
             this.hObjectViewer1.Size = new System.Drawing.Size(695, 601);
-            this.hObjectViewer1.SourceImage = null;
             this.hObjectViewer1.TabIndex = 28;
             // 
             // AutoCircleCalibrationForm

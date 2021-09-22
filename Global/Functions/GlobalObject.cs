@@ -198,9 +198,10 @@ namespace Global.Functions
                                 break;
                             }
                         }
-                        catch
+                        catch (Exception ex)
                         {
-                            message = $"工具{i + 1}执行失败，没有正确配置输入设置，请检查\r\n";
+                            SetRunStatus(i, RunStatus.Exception);
+                            message = $"工具{i + 1}执行失败，{ex.Message}\r\n";
                             isBinding = false;
                             break;
                         }

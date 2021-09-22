@@ -60,7 +60,6 @@
             this.hObjectViewerSource.Name = "hObjectViewerSource";
             this.hObjectViewerSource.ShowToolbar = false;
             this.hObjectViewerSource.Size = new System.Drawing.Size(426, 546);
-            this.hObjectViewerSource.SourceImage = null;
             this.hObjectViewerSource.TabIndex = 0;
             // 
             // groupBox2
@@ -85,7 +84,6 @@
             this.hObjectViewerCompare.Name = "hObjectViewerCompare";
             this.hObjectViewerCompare.ShowToolbar = false;
             this.hObjectViewerCompare.Size = new System.Drawing.Size(427, 546);
-            this.hObjectViewerCompare.SourceImage = null;
             this.hObjectViewerCompare.TabIndex = 1;
             // 
             // tableLayoutPanel1

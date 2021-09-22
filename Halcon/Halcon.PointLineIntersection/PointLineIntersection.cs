@@ -58,7 +58,7 @@ namespace Halcon.PointLineIntersection
             }
             else
             {
-                throw new RunException(4);
+                throw new RunException(RunExceptionType.PointAndLineNumberNotEqual);
             }
         }
 

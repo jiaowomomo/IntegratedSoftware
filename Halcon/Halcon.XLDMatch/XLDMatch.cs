@@ -76,12 +76,12 @@ namespace AutomationSystem.XLDMatch
             HTuple row, column, angle, scale, score;
             if (source == null || source.Key == IntPtr.Zero)
             {
-                throw new RunException(1);
+                throw new RunException(RunExceptionType.NoInputImage);
             }
             source.FindScaledShapeModel(hShapeModel, angleStart, angleExtent, ScaleMin, ScaleMax, MinScore, MatchCount, Overlap, "least_squares", Pyramid, Greediness, out row, out column, out angle, out scale, out score);
             if (score.Length == 0)
             {
-                throw new RunException(2);
+                throw new RunException(RunExceptionType.TemplateLookupFailed);
             }
             GetDataManager.SetOutputInt("匹配数量", row.Length);
             GetDataManager.SetOutputDoubleArray("位置X", column.DArr.ToList());

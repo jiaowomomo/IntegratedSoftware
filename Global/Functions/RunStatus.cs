@@ -10,6 +10,7 @@ namespace Global.Functions
     {
         Wait,
         OK,
-        NG
+        NG,
+        Exception
     }
 }

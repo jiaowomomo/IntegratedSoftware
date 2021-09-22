@@ -38,7 +38,7 @@ namespace Halcon.ROI
             {
                 if (source == null || source.Key == IntPtr.Zero)
                 {
-                    throw new RunException(1);
+                    throw new RunException(RunExceptionType.NoInputImage);
                 }
                 source = source.ReduceDomain(hRegion);
                 hRegion.Dispose();

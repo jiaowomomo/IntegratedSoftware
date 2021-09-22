@@ -75,12 +75,12 @@ namespace Halcon.GrayMatch
             HTuple row, column, angle, error;
             if (source == null || source.Key == IntPtr.Zero)
             {
-                throw new RunException(1);
+                throw new RunException(RunExceptionType.NoInputImage);
             }
             source.BestMatchRotMg(hTemplate, angleStart, angleExtent, 30, "false", 4, out row, out column, out angle, out error);
             if (angle.Length == 0)
             {
-                throw new RunException(2);
+                throw new RunException(RunExceptionType.TemplateLookupFailed);
             }
             GetDataManager.SetOutputInt("匹配数量", row.Length);
             GetDataManager.SetOutputDoubleArray("位置X", column.DArr.ToList());

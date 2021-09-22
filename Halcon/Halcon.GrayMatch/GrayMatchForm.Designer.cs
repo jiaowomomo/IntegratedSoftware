@@ -237,7 +237,6 @@
             this.hObjectViewer1.Name = "hObjectViewer1";
             this.hObjectViewer1.ShowToolbar = true;
             this.hObjectViewer1.Size = new System.Drawing.Size(695, 534);
-            this.hObjectViewer1.SourceImage = null;
             this.hObjectViewer1.TabIndex = 54;
             // 
             // toolStripStatusLabel1
