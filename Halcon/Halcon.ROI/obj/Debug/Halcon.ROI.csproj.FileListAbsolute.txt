@@ -12,3 +12,10 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.c
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.ROI.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.ROI.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.ROIForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ROI\obj\Debug\Halcon.ROI.pdb

@@ -13,3 +13,10 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.XLDMatch\obj\Debug\Halcon.
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.XLDMatch\obj\Debug\Halcon.XLDMatch.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.XLDMatch\obj\Debug\Halcon.XLDMatch.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.XLDMatch\obj\Debug\Halcon.XLDMatch.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.XLDMatch.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.XLDMatch.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.XLDMatch\obj\Debug\AutomationSystem.XLDMatch.XLDMatchForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.XLDMatch\obj\Debug\Halcon.XLDMatch.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.XLDMatch\obj\Debug\Halcon.XLDMatch.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.XLDMatch\obj\Debug\Halcon.XLDMatch.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.XLDMatch\obj\Debug\Halcon.XLDMatch.pdb

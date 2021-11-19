@@ -16,3 +16,12 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.FindCircle\obj\Debug\Halco
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.FindCircle\obj\Debug\Halcon.FindCircle.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.FindCircle\obj\Debug\Halcon.FindCircle.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.FindCircle\obj\Debug\Halcon.FindCircle.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.FindCircle.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.FindCircle.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindCircle\obj\Debug\Halcon.FindCircle.csproj.AssemblyReference.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindCircle\obj\Debug\Halcon.FindCircle.FindCircleForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindCircle\obj\Debug\Halcon.FindCircle.FindCircleFormNew.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindCircle\obj\Debug\Halcon.FindCircle.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindCircle\obj\Debug\Halcon.FindCircle.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindCircle\obj\Debug\Halcon.FindCircle.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindCircle\obj\Debug\Halcon.FindCircle.pdb

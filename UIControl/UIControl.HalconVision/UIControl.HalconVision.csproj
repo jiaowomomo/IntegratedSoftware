@@ -35,10 +35,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\BuildDLL\CommonLibrary.Manager.dll</HintPath>
     </Reference>
-    <Reference Include="Global.Functions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\BuildDLL\Global.Functions.dll</HintPath>
-    </Reference>
     <Reference Include="Halcon.Functions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\BuildDLL\Halcon.Functions.dll</HintPath>

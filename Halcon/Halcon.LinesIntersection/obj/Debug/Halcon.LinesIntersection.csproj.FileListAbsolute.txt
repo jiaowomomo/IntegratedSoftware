@@ -14,3 +14,10 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.LinesIntersection\obj\Debu
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.LinesIntersection\obj\Debug\Halcon.LinesIntersection.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.LinesIntersection\obj\Debug\Halcon.LinesIntersection.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.LinesIntersection\obj\Debug\Halcon.LinesIntersection.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.LinesIntersection.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.LinesIntersection.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.LinesIntersection\obj\Debug\Halcon.LinesIntersection.LinesIntersectionForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.LinesIntersection\obj\Debug\Halcon.LinesIntersection.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.LinesIntersection\obj\Debug\Halcon.LinesIntersection.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.LinesIntersection\obj\Debug\Halcon.LinesIntersection.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.LinesIntersection\obj\Debug\Halcon.LinesIntersection.pdb

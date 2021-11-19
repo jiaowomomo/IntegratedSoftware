@@ -13,3 +13,10 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.RgbToGray.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.RgbToGray.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.RgbToGrayForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.RgbToGray\obj\Debug\Halcon.RgbToGray.pdb

@@ -13,3 +13,10 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ShapeMatch\obj\Debug\Halco
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ShapeMatch\obj\Debug\Halcon.ShapeMatch.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ShapeMatch\obj\Debug\Halcon.ShapeMatch.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ShapeMatch\obj\Debug\Halcon.ShapeMatch.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.ShapeMatch.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.ShapeMatch.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ShapeMatch\obj\Debug\Halcon.ShapeMatch.ShapeMatchForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ShapeMatch\obj\Debug\Halcon.ShapeMatch.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ShapeMatch\obj\Debug\Halcon.ShapeMatch.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ShapeMatch\obj\Debug\Halcon.ShapeMatch.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ShapeMatch\obj\Debug\Halcon.ShapeMatch.pdb

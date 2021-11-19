@@ -14,3 +14,11 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.GrayMatch\obj\Debug\Halcon
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.GrayMatch\obj\Debug\Halcon.GrayMatch.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.GrayMatch\obj\Debug\Halcon.GrayMatch.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.GrayMatch\obj\Debug\Halcon.GrayMatch.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.GrayMatch.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.GrayMatch.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.GrayMatch\obj\Debug\Halcon.GrayMatch.csproj.AssemblyReference.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.GrayMatch\obj\Debug\Halcon.GrayMatch.GrayMatchForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.GrayMatch\obj\Debug\Halcon.GrayMatch.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.GrayMatch\obj\Debug\Halcon.GrayMatch.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.GrayMatch\obj\Debug\Halcon.GrayMatch.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.GrayMatch\obj\Debug\Halcon.GrayMatch.pdb

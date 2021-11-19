@@ -8,3 +8,8 @@ C:\Users\10073\Desktop\AutomationSystem\BuildDLL\CommonLibrary.Layout.pdb
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\Layout\obj\Debug\CommonLibrary.Layout.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\Layout\obj\Debug\CommonLibrary.Layout.dll
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\Layout\obj\Debug\CommonLibrary.Layout.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\CommonLibrary.Layout.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\CommonLibrary.Layout.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Layout\obj\Debug\CommonLibrary.Layout.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Layout\obj\Debug\CommonLibrary.Layout.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Layout\obj\Debug\CommonLibrary.Layout.pdb

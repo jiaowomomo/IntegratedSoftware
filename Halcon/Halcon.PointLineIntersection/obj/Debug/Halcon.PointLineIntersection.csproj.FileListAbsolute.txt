@@ -9,3 +9,8 @@ C:\Users\10073\Desktop\AutomationSystem\ExternTool\Halcon.PointLineIntersection.
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.PointLineIntersection\obj\Debug\Halcon.PointLineIntersection.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.PointLineIntersection\obj\Debug\Halcon.PointLineIntersection.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.PointLineIntersection\obj\Debug\Halcon.PointLineIntersection.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.PointLineIntersection.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.PointLineIntersection.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.PointLineIntersection\obj\Debug\Halcon.PointLineIntersection.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.PointLineIntersection\obj\Debug\Halcon.PointLineIntersection.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.PointLineIntersection\obj\Debug\Halcon.PointLineIntersection.pdb

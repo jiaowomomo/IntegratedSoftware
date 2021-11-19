@@ -9,3 +9,8 @@ C:\Users\10073\Desktop\AutomationSystem\BuildDLL\CommonLibrary.ExtensionUtils.pd
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\CommonLibrary.ExtensionUtils\obj\Debug\CommonLibrary.ExtensionUtils.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\CommonLibrary.ExtensionUtils\obj\Debug\CommonLibrary.ExtensionUtils.dll
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\CommonLibrary.ExtensionUtils\obj\Debug\CommonLibrary.ExtensionUtils.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\CommonLibrary.ExtensionUtils.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\CommonLibrary.ExtensionUtils.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\CommonLibrary.ExtensionUtils\obj\Debug\CommonLibrary.ExtensionUtils.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\CommonLibrary.ExtensionUtils\obj\Debug\CommonLibrary.ExtensionUtils.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\CommonLibrary.ExtensionUtils\obj\Debug\CommonLibrary.ExtensionUtils.pdb

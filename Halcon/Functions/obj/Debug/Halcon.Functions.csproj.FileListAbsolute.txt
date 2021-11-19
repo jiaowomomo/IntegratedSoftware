@@ -18,3 +18,14 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Functions\obj\Debug\Halcon.Functi
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Functions\obj\Debug\Halcon.Functions.csproj.CopyComplete
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Functions\obj\Debug\Halcon.Functions.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Functions\obj\Debug\Halcon.Functions.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\Halcon.Functions.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\Halcon.Functions.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Functions\obj\Debug\Halcon.Functions.csproj.AssemblyReference.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Functions\obj\Debug\Halcon.Functions.CompareViewer.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Functions\obj\Debug\Halcon.Functions.HObjectViewer.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Functions\obj\Debug\Halcon.Functions.Properties.Resources.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Functions\obj\Debug\Halcon.Functions.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Functions\obj\Debug\Halcon.Functions.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Functions\obj\Debug\Halcon.Functions.csproj.CopyComplete
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Functions\obj\Debug\Halcon.Functions.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Functions\obj\Debug\Halcon.Functions.pdb

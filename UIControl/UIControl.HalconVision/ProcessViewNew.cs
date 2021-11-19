@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Global.Functions;
 using UIControl.Common;
+using CommonLibrary.Manager;
+using Halcon.Functions;
 
 namespace UIControl.HalconVision
 {
     public partial class ProcessViewNew : UserControl
     {
+        private int m_nSelectedModule = -1;
+
         public ProcessViewNew()
         {
             InitializeComponent();
@@ -22,22 +25,24 @@ namespace UIControl.HalconVision
             for (int i = 0; i < 20; i++)
             {
                 comboBox1.Items.Add("流程" + i.ToString());
-                if (GlobalObjectList.ImageListObject.Count != 0)
+                ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, i);
+                if (managerResult.OK)
                 {
-                    if (GlobalObjectList.ImageListObject[i].OnProcessChanged == null)
+                    ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                    if (processManager.OnProcessChanged == null)
                     {
-                        GlobalObjectList.ImageListObject[i].OnProcessChanged += UpdateListView;
+                        processManager.OnProcessChanged += UpdateListView;
                     }
                 }
             }
             comboBox1.SelectedIndex = 0;
 
-            GlobalObjectList.SetRunStatus = new Action<int, RunStatus>(this.SetRunStatus);
+            GlobalImageProcessControl.SetRunStatus = new Action<int, RunStatus>(this.SetRunStatus);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GlobalObjectList.SelectedImageIndex = comboBox1.SelectedIndex;
+            GlobalImageProcessControl.SelectedImageIndex = comboBox1.SelectedIndex;
             UpdateListView(null, new EventArgs());
         }
 
@@ -45,14 +50,16 @@ namespace UIControl.HalconVision
         {
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.Controls.Clear();
-            if (GlobalObjectList.ImageListObject.Count != 0)
+            ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
+            if (managerResult.OK)
             {
-                for (int i = 0; i < GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].ProcessCount; i++)
+                ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                for (int i = 0; i < processManager.ProcessCount; i++)
                 {
                     ProcessModule processModule = new ProcessModule();
                     processModule.Width = flowLayoutPanel1.Width - 5;
                     processModule.ModuleChange += this.ModuleChange;
-                    processModule.Name = ((i + 1).ToString() + "." + GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].GetProcessByIndex(i).ToolName());
+                    processModule.ModuleName = ((i + 1).ToString() + "." + processManager.GetProcessByIndex(i).ToolName());
                     flowLayoutPanel1.Controls.Add(processModule);
                 }
             }
@@ -63,71 +70,91 @@ namespace UIControl.HalconVision
 
         private void toolStripMenuItemSetInput_Click(object sender, EventArgs e)
         {
-            if (nSelectedModule != -1)
+            if (m_nSelectedModule != -1)
             {
-                SetInputForm setInputForm = new SetInputForm(nSelectedModule);
+                SetInputForm setInputForm = new SetInputForm(m_nSelectedModule);
                 setInputForm.ShowDialog();
-                nSelectedModule = -1;
+                m_nSelectedModule = -1;
             }
         }
 
         private void toolStripMenuItemRunToCurrent_Click(object sender, EventArgs e)
         {
-            if (nSelectedModule!=-1)
+            if (m_nSelectedModule != -1)
             {
-                GlobalObjectList.RunImageProcess(0, nSelectedModule + 1, GlobalObjectList.SelectedImageIndex);
-                nSelectedModule = -1;
+                GlobalImageProcessControl.RunImageProcess(0, m_nSelectedModule + 1, GlobalImageProcessControl.SelectedImageIndex);
+                m_nSelectedModule = -1;
             }
         }
 
         private void toolStripMenuItemRunCurrent_Click(object sender, EventArgs e)
         {
-            if (nSelectedModule!=-1)
+            if (m_nSelectedModule != -1)
             {
-                GlobalObjectList.RunImageProcess(nSelectedModule, nSelectedModule + 1, GlobalObjectList.SelectedImageIndex);
-                nSelectedModule = -1;
+                GlobalImageProcessControl.RunImageProcess(m_nSelectedModule, m_nSelectedModule + 1, GlobalImageProcessControl.SelectedImageIndex);
+                m_nSelectedModule = -1;
             }
         }
 
         private void toolStripMenuItemEdit_Click(object sender, EventArgs e)
         {
-            if (nSelectedModule != -1)
+            if (m_nSelectedModule != -1)
             {
-                GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].GetProcessByIndex(nSelectedModule).EditParameters();
-                nSelectedModule = -1;
+                ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
+                if (managerResult.OK)
+                {
+                    ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                    processManager.GetProcessByIndex(m_nSelectedModule).EditParameters();
+                }
+                m_nSelectedModule = -1;
             }
         }
 
         private void toolStripMenuItemDelete_Click(object sender, EventArgs e)
         {
-            if (nSelectedModule != -1)
+            if (m_nSelectedModule != -1)
             {
-                GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].DeleteProcess(nSelectedModule);
-                nSelectedModule = -1;
+                ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
+                if (managerResult.OK)
+                {
+                    ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                    processManager.DeleteProcess(m_nSelectedModule);
+                }
+                m_nSelectedModule = -1;
             }
         }
 
         private void toolStripMenuItemPrevious_Click(object sender, EventArgs e)
         {
-            if (nSelectedModule != -1)
+            if (m_nSelectedModule != -1)
             {
-                GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].MoveToProvious(nSelectedModule);
-                nSelectedModule = -1;
+                ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
+                if (managerResult.OK)
+                {
+                    ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                    processManager.MoveToPrevious(m_nSelectedModule);
+                }
+                m_nSelectedModule = -1;
             }
         }
 
         private void toolStripMenuItemNext_Click(object sender, EventArgs e)
         {
-            if (nSelectedModule != -1)
+            if (m_nSelectedModule != -1)
             {
-                GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].MoveToNext(nSelectedModule);
-                nSelectedModule = -1;
+                ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
+                if (managerResult.OK)
+                {
+                    ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                    processManager.MoveToNext(m_nSelectedModule);
+                }
+                m_nSelectedModule = -1;
             }
         }
 
         private void toolStripMenuItemClear_Click(object sender, EventArgs e)
         {
-            GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].CreateNewProcess();
+            GlobalProcessManager.CreateNewProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
         }
 
         private void ModuleChange(ProcessModule processModule)
@@ -137,7 +164,7 @@ namespace UIControl.HalconVision
                 flowLayoutPanel1.Controls[i].BackColor = Color.White;
             }
             processModule.BackColor = Color.Cornsilk;
-            nSelectedModule = flowLayoutPanel1.Controls.IndexOf(processModule);
+            m_nSelectedModule = flowLayoutPanel1.Controls.IndexOf(processModule);
         }
 
         private void SetRunStatus(int index, RunStatus runStatus)

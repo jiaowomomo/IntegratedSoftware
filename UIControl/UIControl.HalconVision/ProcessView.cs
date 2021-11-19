@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Global.Functions;
+using CommonLibrary.Manager;
+using Halcon.Functions;
 
 namespace UIControl.HalconVision
 {
@@ -21,11 +22,13 @@ namespace UIControl.HalconVision
             for (int i = 0; i < 20; i++)
             {
                 comboBox1.Items.Add("流程" + i.ToString());
-                if (GlobalObjectList.ImageListObject.Count != 0)
+                ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, i);
+                if (managerResult.OK)
                 {
-                    if (GlobalObjectList.ImageListObject[i].OnProcessChanged == null)
+                    ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                    if (processManager.OnProcessChanged == null)
                     {
-                        GlobalObjectList.ImageListObject[i].OnProcessChanged += UpdateListView;
+                        processManager.OnProcessChanged += UpdateListView;
                     }
                 }
             }
@@ -35,11 +38,13 @@ namespace UIControl.HalconVision
         private void UpdateListView(object sender, EventArgs args)
         {
             listView1.Items.Clear();
-            if (GlobalObjectList.ImageListObject.Count != 0)
+            ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
+            if (managerResult.OK)
             {
-                for (int i = 0; i < GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].ProcessCount; i++)
+                ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                for (int i = 0; i < processManager.ProcessCount; i++)
                 {
-                    listView1.Items.Add((i + 1).ToString() + "." + GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].GetProcessByIndex(i).ToolName());
+                    listView1.Items.Add((i + 1).ToString() + "." + processManager.GetProcessByIndex(i).ToolName());
                 }
             }
         }
@@ -49,7 +54,12 @@ namespace UIControl.HalconVision
             if (listView1.SelectedItems.Count != 0)
             {
                 int index = listView1.SelectedItems[0].Index;
-                GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].GetProcessByIndex(index).EditParameters();
+                ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
+                if (managerResult.OK)
+                {
+                    ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                    processManager.GetProcessByIndex(index).EditParameters();
+                }
             }
         }
 
@@ -67,7 +77,12 @@ namespace UIControl.HalconVision
             if (listView1.SelectedItems.Count != 0)
             {
                 int index = listView1.SelectedItems[0].Index;
-                GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].DeleteProcess(index);
+                ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
+                if (managerResult.OK)
+                {
+                    ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                    processManager.DeleteProcess(index);
+                }
             }
         }
 
@@ -76,7 +91,12 @@ namespace UIControl.HalconVision
             if (listView1.SelectedItems.Count != 0)
             {
                 int index = listView1.SelectedItems[0].Index;
-                GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].MoveToProvious(index);
+                ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
+                if (managerResult.OK)
+                {
+                    ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                    processManager.MoveToPrevious(index);
+                }
             }
         }
 
@@ -85,7 +105,12 @@ namespace UIControl.HalconVision
             if (listView1.SelectedItems.Count != 0)
             {
                 int index = listView1.SelectedItems[0].Index;
-                GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].MoveToNext(index);
+                ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
+                if (managerResult.OK)
+                {
+                    ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                    processManager.MoveToNext(index);
+                }
             }
         }
 
@@ -94,13 +119,18 @@ namespace UIControl.HalconVision
             if (listView1.SelectedItems.Count != 0)
             {
                 int index = listView1.SelectedItems[0].Index;
-                GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].GetProcessByIndex(index).EditParameters();
+                ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
+                if (managerResult.OK)
+                {
+                    ProcessManager<IImageHalconObject> processManager = managerResult.GetProcessManager;
+                    processManager.GetProcessByIndex(index).EditParameters();
+                }
             }
         }
 
         private void toolStripMenuItemClear_Click(object sender, EventArgs e)
         {
-            GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].CreateNewProcess();
+            GlobalProcessManager.CreateNewProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, GlobalImageProcessControl.SelectedImageIndex);
         }
 
         private void toolStripMenuItemRunToCurrent_Click(object sender, EventArgs e)
@@ -108,7 +138,7 @@ namespace UIControl.HalconVision
             if (listView1.SelectedItems.Count != 0)
             {
                 int index = listView1.SelectedItems[0].Index;
-                GlobalObjectList.RunImageProcess(0, index + 1, GlobalObjectList.SelectedImageIndex);
+                GlobalImageProcessControl.RunImageProcess(0, index + 1, GlobalImageProcessControl.SelectedImageIndex);
             }
         }
 
@@ -117,13 +147,13 @@ namespace UIControl.HalconVision
             if (listView1.SelectedItems.Count != 0)
             {
                 int index = listView1.SelectedItems[0].Index;
-                GlobalObjectList.RunImageProcess(index, index + 1, GlobalObjectList.SelectedImageIndex);
+                GlobalImageProcessControl.RunImageProcess(index, index + 1, GlobalImageProcessControl.SelectedImageIndex);
             }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GlobalObjectList.SelectedImageIndex = comboBox1.SelectedIndex;
+            GlobalImageProcessControl.SelectedImageIndex = comboBox1.SelectedIndex;
             UpdateListView(null, new EventArgs());
         }
     }

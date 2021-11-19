@@ -16,3 +16,12 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.FindLine\obj\Debug\Halcon.
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.FindLine\obj\Debug\Halcon.FindLine.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.FindLine\obj\Debug\Halcon.FindLine.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.FindLine\obj\Debug\Halcon.FindLine.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.FindLine.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.FindLine.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindLine\obj\Debug\Halcon.FindLine.csproj.AssemblyReference.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindLine\obj\Debug\Halcon.FindLine.FindLineForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindLine\obj\Debug\Halcon.FindLine.FindLineFormNew.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindLine\obj\Debug\Halcon.FindLine.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindLine\obj\Debug\Halcon.FindLine.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindLine\obj\Debug\Halcon.FindLine.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.FindLine\obj\Debug\Halcon.FindLine.pdb

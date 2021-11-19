@@ -16,3 +16,11 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.LocalThreshold\obj\Debug\H
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.LocalThreshold\obj\Debug\Halcon.LocalThreshold.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.LocalThreshold\obj\Debug\Halcon.LocalThreshold.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.LocalThreshold\obj\Debug\Halcon.LocalThreshold.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.LocalThreshold.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.LocalThreshold.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.LocalThreshold\obj\Debug\Halcon.LocalThreshold.LocalThresholdForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.LocalThreshold\obj\Debug\Halcon.LocalThreshold.LocalThresholdFormNew.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.LocalThreshold\obj\Debug\Halcon.LocalThreshold.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.LocalThreshold\obj\Debug\Halcon.LocalThreshold.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.LocalThreshold\obj\Debug\Halcon.LocalThreshold.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.LocalThreshold\obj\Debug\Halcon.LocalThreshold.pdb

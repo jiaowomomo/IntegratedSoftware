@@ -18,3 +18,11 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ManualCalibration\obj\Debu
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ManualCalibration\obj\Debug\Halcon.ManualCalibration.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ManualCalibration\obj\Debug\Halcon.ManualCalibration.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ManualCalibration\obj\Debug\Halcon.ManualCalibration.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Calibration\Halcon.ManualCalibration.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Calibration\Halcon.ManualCalibration.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ManualCalibration\obj\Debug\Halcon.ManualCalibration.ManualCalibrationForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ManualCalibration\obj\Debug\Halcon.ManualCalibration.SetCoordinate.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ManualCalibration\obj\Debug\Halcon.ManualCalibration.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ManualCalibration\obj\Debug\Halcon.ManualCalibration.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ManualCalibration\obj\Debug\Halcon.ManualCalibration.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ManualCalibration\obj\Debug\Halcon.ManualCalibration.pdb

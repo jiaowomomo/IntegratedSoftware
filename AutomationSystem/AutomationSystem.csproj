@@ -64,9 +64,6 @@
     <Reference Include="CommonLibrary.Manager">
       <HintPath>..\BuildDLL\CommonLibrary.Manager.dll</HintPath>
     </Reference>
-    <Reference Include="Global.Functions">
-      <HintPath>..\BuildDLL\Global.Functions.dll</HintPath>
-    </Reference>
     <Reference Include="Halcon.Functions">
       <HintPath>..\BuildDLL\Halcon.Functions.dll</HintPath>
     </Reference>

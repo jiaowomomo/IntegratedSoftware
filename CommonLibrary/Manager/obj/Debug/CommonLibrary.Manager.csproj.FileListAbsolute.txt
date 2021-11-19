@@ -8,3 +8,8 @@ C:\Users\10073\Desktop\AutomationSystem\BuildDLL\CommonLibrary.Manager.pdb
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\Manager\obj\Debug\CommonLibrary.Manager.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\Manager\obj\Debug\CommonLibrary.Manager.dll
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\Manager\obj\Debug\CommonLibrary.Manager.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\CommonLibrary.Manager.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\CommonLibrary.Manager.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Manager\obj\Debug\CommonLibrary.Manager.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Manager\obj\Debug\CommonLibrary.Manager.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Manager\obj\Debug\CommonLibrary.Manager.pdb

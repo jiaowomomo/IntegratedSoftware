@@ -10,14 +10,14 @@ namespace CommonLibrary.Manager
 {
     public class ProcessManager<T>
     {
+        private List<T> m_listProcess;
+        private List<int> m_listSelectIndex;
+
         public delegate void ProcessChangedEventHandler(object sender, EventArgs args);
         public ProcessChangedEventHandler OnProcessChanged;
 
         public delegate void SelectChangedEventHandler(object sender, EventArgs args);
         public SelectChangedEventHandler OnSelectChanged;
-
-        private List<T> m_listProcess;
-        private List<int> m_listSelectIndex;
 
         public int ProcessCount { get => m_listProcess.Count; }
         public int SelectedCount { get => m_listSelectIndex.Count; }
@@ -34,6 +34,15 @@ namespace CommonLibrary.Manager
             OnProcessChanged?.Invoke(null, null);
         }
 
+        public void ReplaceProcess(int index, T T_object)
+        {
+            if (index >= 0 && index < m_listProcess.Count)
+            {
+                m_listProcess[index] = T_object;
+                OnProcessChanged?.Invoke(null, null);
+            }
+        }
+
         public void DeleteProcess(int index)
         {
             m_listProcess.RemoveAt(index);
@@ -42,7 +51,7 @@ namespace CommonLibrary.Manager
 
         public void MoveToTop(int index)
         {
-            if ((index != 0) && (index < m_listProcess.Count))
+            if ((index > 0) && (index < m_listProcess.Count))
             {
                 T temp = m_listProcess[index];
                 m_listProcess.Insert(0, temp);
@@ -62,7 +71,7 @@ namespace CommonLibrary.Manager
             }
         }
 
-        public void MoveToProvious(int index)
+        public void MoveToPrevious(int index)
         {
             if ((index > 0) && (index < m_listProcess.Count))
             {
@@ -121,7 +130,7 @@ namespace CommonLibrary.Manager
             }
         }
 
-        public void CreateNewProcess()
+        public void CreateNewProcessManager()
         {
             m_listProcess = new List<T>();
             OnProcessChanged?.Invoke(null, null);

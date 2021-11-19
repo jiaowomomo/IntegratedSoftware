@@ -13,3 +13,10 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ReadImage\obj\Debug\Halcon
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ReadImage\obj\Debug\Halcon.ReadImage.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ReadImage\obj\Debug\Halcon.ReadImage.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.ReadImage\obj\Debug\Halcon.ReadImage.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.ReadImage.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.ReadImage.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ReadImage\obj\Debug\Halcon.ReadImage.ReadImageForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ReadImage\obj\Debug\Halcon.ReadImage.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ReadImage\obj\Debug\Halcon.ReadImage.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ReadImage\obj\Debug\Halcon.ReadImage.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.ReadImage\obj\Debug\Halcon.ReadImage.pdb

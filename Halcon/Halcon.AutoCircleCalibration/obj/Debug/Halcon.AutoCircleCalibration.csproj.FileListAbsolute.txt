@@ -16,3 +16,11 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.AutoCircleCalibration\obj\
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.AutoCircleCalibration\obj\Debug\Halcon.AutoCircleCalibration.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.AutoCircleCalibration\obj\Debug\Halcon.AutoCircleCalibration.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.AutoCircleCalibration\obj\Debug\Halcon.AutoCircleCalibration.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Calibration\Halcon.AutoCircleCalibration.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Calibration\Halcon.AutoCircleCalibration.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.AutoCircleCalibration\obj\Debug\Halcon.AutoCircleCalibration.csproj.AssemblyReference.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.AutoCircleCalibration\obj\Debug\Halcon.AutoCircleCalibration.AutoCircleCalibrationForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.AutoCircleCalibration\obj\Debug\Halcon.AutoCircleCalibration.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.AutoCircleCalibration\obj\Debug\Halcon.AutoCircleCalibration.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.AutoCircleCalibration\obj\Debug\Halcon.AutoCircleCalibration.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.AutoCircleCalibration\obj\Debug\Halcon.AutoCircleCalibration.pdb

@@ -14,7 +14,6 @@ using System.Windows.Forms;
 using CommonLibrary.DataHelper;
 using CommonLibrary.ExtensionUtils;
 using CommonLibrary.Manager;
-using Global.Functions;
 using Halcon.Functions;
 using HalconDotNet;
 using UIControl.HalconVision;
@@ -53,10 +52,10 @@ namespace AutomationSystem
 
             InitDirectorys();
 
+            GlobalProcessManager.CreateMultiProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, SELECT_WINDOW_COUNT);
             for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
             {
                 m_listSelectWindows.AddProcess(0);
-                GlobalObjectList.ImageListObject.Add(new ProcessManager<IImageHalconObject>());
             }
             AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(Function.CurrentDomain_AssemblyResolve);
         }
@@ -95,7 +94,7 @@ namespace AutomationSystem
             }
 
             LoadToolMenu();
-            GlobalObjectList.OnFinish += OnFinish;
+            GlobalImageProcessControl.OnFinish += OnFinish;
         }
 
         private void InitDirectorys()
@@ -312,22 +311,22 @@ namespace AutomationSystem
                 dockPanelMain.LoadFromXml(m_strTempDockDefaultConfigPath, new DeserializeDockContent(GetDeserializeDockContent));
                 for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
                 {
-                    GlobalObjectList.ImageListObject[i].Load($"{m_strTempProcessPath}{i}.handle");
+                    GlobalProcessManager.Load<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, $"{m_strTempProcessPath}{i}.handle", i);
                 }
                 this.Text = "AutomationSystem";
                 m_strCurrentFile = string.Empty;
             }
             else
             {
-                m_listWindows.CreateNewProcess();
+                m_listWindows.CreateNewProcessManager();
                 m_nWindowsCount = 0;
                 m_nLoadedWindowsCount = 0;
                 InitDockPanel();
-                m_listSelectWindows.CreateNewProcess();
+                m_listSelectWindows.CreateNewProcessManager();
                 for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
                 {
                     m_listSelectWindows.AddProcess(0);
-                    GlobalObjectList.ImageListObject[i].CreateNewProcess();
+                    GlobalProcessManager.CreateNewProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, i);
                 }
                 this.Text = "AutomationSystem";
                 m_strCurrentFile = string.Empty;
@@ -383,9 +382,13 @@ namespace AutomationSystem
             dockPanelMain.LoadFromXml(m_strTempDockDefaultConfigPath, new DeserializeDockContent(GetDeserializeDockContent));
             for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
             {
-                GlobalObjectList.ImageListObject[i].Load($"{m_strTempProcessPath}{i}.handle");
+                GlobalProcessManager.Load<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, $"{m_strTempProcessPath}{i}.handle", i);
             }
-            GlobalObjectList.ImageListObject[0].OnProcessChanged(null, null);
+            ProcessManagerResult<ProcessManager<IImageHalconObject>> managerResult = GlobalProcessManager.GetProcessManager<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, 0);
+            if (managerResult.OK)
+            {
+                managerResult.GetProcessManager.OnProcessChanged(null, null);
+            }
             this.Text = "AutomationSystem---" + filePath;
             m_strCurrentFile = filePath;
         }
@@ -413,7 +416,7 @@ namespace AutomationSystem
             {
                 for (int i = 0; i < SELECT_WINDOW_COUNT; i++)
                 {
-                    GlobalObjectList.ImageListObject[i].Save($"{m_strTempProcessPath}{i}.handle");
+                    GlobalProcessManager.Save<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, $"{m_strTempProcessPath}{i}.handle", i);
                 }
                 m_listWindows.Save(m_strTempWindowConfigPath);
                 m_listSelectWindows.Save(m_strTempSelectConfigPath);
@@ -494,7 +497,7 @@ namespace AutomationSystem
         {
             Action action = new Action(() => { toolStripButtonStart.Enabled = false; toolStripButtonPause.Enabled = true; toolStripButtonStop.Enabled = true; toolStripStatusLabel1.Text = "流程运行中"; });
             this.Invoke(action);
-            GlobalObjectList.RunIndexProcess(GlobalObjectList.SelectedImageIndex);
+            GlobalImageProcessControl.RunIndexProcess(GlobalImageProcessControl.SelectedImageIndex);
         }
 
         private void ToolStripMenuItemSaveAs_Click(object sender, EventArgs e)
@@ -513,12 +516,12 @@ namespace AutomationSystem
         {
             Action action = new Action(() => { toolStripButtonStart.Enabled = true; toolStripButtonPause.Enabled = false; toolStripButtonStop.Enabled = true; toolStripStatusLabel1.Text = "流程暂停中"; });
             this.Invoke(action);
-            GlobalObjectList.PauseImageProcess();
+            GlobalImageProcessControl.PauseImageProcess();
         }
 
         private void ToolStripButtonStop_Click(object sender, EventArgs e)
         {
-            GlobalObjectList.StopImageProcess();
+            GlobalImageProcessControl.StopImageProcess();
         }
 
         private void ToolStripMenuItemSetWindowName_Click(object sender, EventArgs e)
@@ -531,7 +534,7 @@ namespace AutomationSystem
             SetWindowName setWindowName = new SetWindowName(names);
             if (setWindowName.ShowDialog() == DialogResult.OK)
             {
-                m_listWindows.CreateNewProcess();
+                m_listWindows.CreateNewProcessManager();
                 for (int i = 0; i < setWindowName.SetNames.Count; i++)
                 {
                     m_listWindows.AddProcess(setWindowName.SetNames[i]);
@@ -609,7 +612,7 @@ namespace AutomationSystem
             SelectWindow selectWindow = new SelectWindow(names, selectWindows);
             if (selectWindow.ShowDialog() == DialogResult.OK)
             {
-                m_listSelectWindows.CreateNewProcess();
+                m_listSelectWindows.CreateNewProcessManager();
                 for (int i = 0; i < selectWindow.SelectIndex.Count; i++)
                 {
                     m_listSelectWindows.AddProcess(selectWindow.SelectIndex[i]);

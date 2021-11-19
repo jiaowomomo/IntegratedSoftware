@@ -14,3 +14,11 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Delay\obj\Debug\Halcon.Del
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Delay\obj\Debug\Halcon.Delay.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Delay\obj\Debug\Halcon.Delay.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Delay\obj\Debug\Halcon.Delay.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.Delay.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.Delay.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Delay\obj\Debug\Halcon.Delay.csproj.AssemblyReference.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Delay\obj\Debug\Halcon.Delay.DelayForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Delay\obj\Debug\Halcon.Delay.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Delay\obj\Debug\Halcon.Delay.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Delay\obj\Debug\Halcon.Delay.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Delay\obj\Debug\Halcon.Delay.pdb

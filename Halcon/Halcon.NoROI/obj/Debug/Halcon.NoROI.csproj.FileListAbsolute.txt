@@ -12,3 +12,10 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoR
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.NoROI.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.NoROI.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.NoROIForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.NoROI\obj\Debug\Halcon.NoROI.pdb

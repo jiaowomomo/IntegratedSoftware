@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Global.Functions
+namespace CommonLibrary.Manager
 {
     public enum RunStatus
     {

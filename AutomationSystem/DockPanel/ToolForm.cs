@@ -1,5 +1,5 @@
 ﻿using CommonLibrary.ExtensionUtils;
-using Global.Functions;
+using CommonLibrary.Manager;
 using Halcon.Functions;
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,7 @@ namespace AutomationSystem
                 halconObject.SetParameters();
                 if (halconObject.IsSetupOK)
                 {
-                    GlobalObjectList.ImageListObject[GlobalObjectList.SelectedImageIndex].AddProcess(halconObject);
+                    GlobalProcessManager.AddProcess<IImageHalconObject>(GlobalImageProcessControl.ImageKeyName, halconObject, GlobalImageProcessControl.SelectedImageIndex);
                 }
             }
         }

@@ -7,31 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Global.Functions;
+using CommonLibrary.Manager;
 
 namespace UIControl.Common
 {
     public partial class ProcessModule : UserControl
     {
-        private string _name = "工具";
+        private string m_strModuleName = "工具";
 
-        public string Name
+        public string ModuleName
         {
-            get { return _name; }
+            get { return m_strModuleName; }
             set
             {
-                _name = value;
-                lbName.Text = _name;
+                m_strModuleName = value;
+                lbName.Text = m_strModuleName;
             }
         }
+
+        public delegate void ModuleClickEventHandler(ProcessModule processModule);
+        public ModuleClickEventHandler ModuleChange = null;
 
         public ProcessModule()
         {
             InitializeComponent();
         }
-
-        public delegate void ModuleClickEventHandler(ProcessModule processModule);
-        public ModuleClickEventHandler ModuleChange = null;
 
         private void ProcessModule_MouseDown(object sender, MouseEventArgs e)
         {

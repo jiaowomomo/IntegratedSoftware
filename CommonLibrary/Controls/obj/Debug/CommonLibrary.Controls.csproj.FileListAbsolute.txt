@@ -19,3 +19,13 @@ C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\Controls\obj\Debug\CommonL
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.dll
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\CommonLibrary.Controls.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\CommonLibrary.Controls.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.PropertiesViewer.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.Properties.Resources.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.ToggleButton.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.TrackBarEditor.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\Controls\obj\Debug\CommonLibrary.Controls.pdb

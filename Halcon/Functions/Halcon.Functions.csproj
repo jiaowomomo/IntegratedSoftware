@@ -35,6 +35,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\BuildDLL\CommonLibrary.ExtensionUtils.dll</HintPath>
     </Reference>
+    <Reference Include="CommonLibrary.Manager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BuildDLL\CommonLibrary.Manager.dll</HintPath>
+    </Reference>
     <Reference Include="halcondotnet, Version=12.0.0.0, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ThirdPartyDLL\halcondotnet.dll</HintPath>
@@ -59,6 +63,7 @@
     </Compile>
     <Compile Include="Data\DataBinding.cs" />
     <Compile Include="Data\DataManager.cs" />
+    <Compile Include="GlobalImageProcessControl.cs" />
     <Compile Include="HObjectViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -13,3 +13,11 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\D
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.CoordinateConversion.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.CoordinateConversion.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.csproj.AssemblyReference.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.CoordinateConversionForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.CoordinateConversion\obj\Debug\Halcon.CoordinateConversion.pdb

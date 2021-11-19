@@ -91,7 +91,7 @@ namespace UIControl.Common
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            m_listProcess.MoveToProvious(nSeletedIndex);
+            m_listProcess.MoveToPrevious(nSeletedIndex);
         }
 
         private int nSeletedIndex = -1;
@@ -123,7 +123,7 @@ namespace UIControl.Common
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            m_listProcess.CreateNewProcess();
+            m_listProcess.CreateNewProcessManager();
         }
 
         private void listView1_Click(object sender, EventArgs e)

@@ -16,3 +16,12 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.TextShow\obj\Debug\Halcon.
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.TextShow\obj\Debug\Halcon.TextShow.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.TextShow\obj\Debug\Halcon.TextShow.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.TextShow\obj\Debug\Halcon.TextShow.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.TextShow.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.TextShow.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.TextShow\obj\Debug\Halcon.TextShow.csproj.AssemblyReference.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.TextShow\obj\Debug\Halcon.TextShow.TextShowForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.TextShow\obj\Debug\Halcon.TextShow.TextShowFormNew.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.TextShow\obj\Debug\Halcon.TextShow.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.TextShow\obj\Debug\Halcon.TextShow.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.TextShow\obj\Debug\Halcon.TextShow.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.TextShow\obj\Debug\Halcon.TextShow.pdb

@@ -7,7 +7,7 @@
     <ProjectGuid>{9C47FF7C-8C06-49FC-8A5D-9D4100B23F4D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CommomLibrary.Manager</RootNamespace>
+    <RootNamespace>CommonLibrary.Manager</RootNamespace>
     <AssemblyName>CommonLibrary.Manager</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -42,8 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalProcessManager.cs" />
     <Compile Include="ProcessManager.cs" />
+    <Compile Include="ProcessManagerResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunStatus.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

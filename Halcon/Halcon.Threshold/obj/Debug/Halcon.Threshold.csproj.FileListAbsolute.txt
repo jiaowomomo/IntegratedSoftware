@@ -15,3 +15,11 @@ C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.csproj.CoreCompileInputs.cache
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.dll
 C:\Users\10073\Desktop\AutomationSystem\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.Threshold.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\ExternTool\Halcon.Threshold.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.ThresholdForm.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.ThresholdFormNew.resources
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.csproj.GenerateResource.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\Halcon\Halcon.Threshold\obj\Debug\Halcon.Threshold.pdb

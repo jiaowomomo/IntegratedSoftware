@@ -21,3 +21,12 @@ C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\CommonLibrary.DataHelper\o
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\CommonLibrary.DataHelper\obj\Debug\CommonLibrary.DataHelper.csproj.CopyComplete
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\CommonLibrary.DataHelper\obj\Debug\CommonLibrary.DataHelper.dll
 C:\Users\10073\Desktop\AutomationSystem\CommonLibrary\CommonLibrary.DataHelper\obj\Debug\CommonLibrary.DataHelper.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\CommonLibrary.DataHelper.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\BuildDLL\CommonLibrary.DataHelper.pdb
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\CommonLibrary.DataHelper\obj\Debug\CommonLibrary.DataHelper.csproj.AssemblyReference.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\CommonLibrary.DataHelper\obj\Debug\Interop.ADOX.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\CommonLibrary.DataHelper\obj\Debug\CommonLibrary.DataHelper.csproj.ResolveComReference.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\CommonLibrary.DataHelper\obj\Debug\CommonLibrary.DataHelper.csproj.CoreCompileInputs.cache
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\CommonLibrary.DataHelper\obj\Debug\CommonLibrary.DataHelper.csproj.CopyComplete
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\CommonLibrary.DataHelper\obj\Debug\CommonLibrary.DataHelper.dll
+C:\Project\OpenSource\jiaowomomo\IntegratedSoftware\CommonLibrary\CommonLibrary.DataHelper\obj\Debug\CommonLibrary.DataHelper.pdb
