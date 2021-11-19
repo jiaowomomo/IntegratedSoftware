@@ -52,4 +52,4 @@
 
 ③ 打开AutomationSystem.sln，选择重新生成解决方案。
 
-④ 将Calibration、CameraDll、ExternTool文件夹以及Halcon软件的DLL：halcon.dll，复制粘贴到AutomationSystem的生成输出路径，即可运行软件。
+④ 将Calibration、ExternTool文件夹以及Halcon软件的DLL：halcon.dll，复制粘贴到AutomationSystem的生成输出路径，即可运行软件。
