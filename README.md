@@ -1,6 +1,8 @@
 # IntegratedSoftware
 视觉软件，2020年05月修整期间编写的工业集成软件框架，目前不从事该行业，因此开放出来交流学习。软件已作删减，仅保留视觉部分，需自行添加Halcon的DLL方可正常运行软件。希望对大家有帮助。
 
+*想了解相机模块的朋友比较多，但因个人资源有限，相机代码并没有作过多编写和测试优化，害怕误导大家的学习方向。现软件上传了相机部分的代码，仅供大家参考，望见谅。
+
 # 开发环境
 ● Visual Studio 2019
 
@@ -21,6 +23,10 @@
 ● Calibration
 
 编译生成的标定DLL放置位置。
+
+● CameraDLL
+
+编译生成的相机DLL放置位置。
 
 ● CommonLibrary
 
@@ -52,4 +58,4 @@
 
 ③ 打开AutomationSystem.sln，选择重新生成解决方案。
 
-④ 将Calibration、ExternTool文件夹以及Halcon软件的DLL：halcon.dll，复制粘贴到AutomationSystem的生成输出路径，即可运行软件。
+④ 将Calibration、CameraDll、ExternTool文件夹以及Halcon软件的DLL：halcon.dll，复制粘贴到AutomationSystem的生成输出路径，即可运行软件。
