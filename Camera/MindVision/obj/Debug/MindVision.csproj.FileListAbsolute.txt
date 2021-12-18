@@ -1,0 +1,7 @@
+C:\工作\软件开发\研发软件\AutomationSystem\Camera\MindVision\obj\Debug\MindVision.csproj.CoreCompileInputs.cache
+C:\工作\软件开发\研发软件\AutomationSystem\BuildDLL\MindVision.dll
+C:\工作\软件开发\研发软件\AutomationSystem\BuildDLL\MindVision.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\Camera\MindVision\obj\Debug\MindVision.csproj.CopyComplete
+C:\工作\软件开发\研发软件\AutomationSystem\Camera\MindVision\obj\Debug\MindVision.dll
+C:\工作\软件开发\研发软件\AutomationSystem\Camera\MindVision\obj\Debug\MindVision.pdb
+C:\工作\软件开发\研发软件\AutomationSystem\Camera\MindVision\obj\Debug\MindVision.csprojAssemblyReference.cache

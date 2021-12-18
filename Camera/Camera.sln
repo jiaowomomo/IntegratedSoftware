@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camera.MindVision", "MindVision\Camera.MindVision.csproj", "{95DE1821-BCAD-47B2-B788-25EF16DE573D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{84EA6B8F-2570-421D-A2FE-628C3BD10580} = {84EA6B8F-2570-421D-A2FE-628C3BD10580}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camera.Common", "Camera.Common\Camera.Common.csproj", "{84EA6B8F-2570-421D-A2FE-628C3BD10580}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95DE1821-BCAD-47B2-B788-25EF16DE573D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95DE1821-BCAD-47B2-B788-25EF16DE573D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95DE1821-BCAD-47B2-B788-25EF16DE573D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95DE1821-BCAD-47B2-B788-25EF16DE573D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84EA6B8F-2570-421D-A2FE-628C3BD10580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84EA6B8F-2570-421D-A2FE-628C3BD10580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84EA6B8F-2570-421D-A2FE-628C3BD10580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84EA6B8F-2570-421D-A2FE-628C3BD10580}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F4A5CC7-8C1B-4C57-BCCE-0F2FA5E02C02}
+	EndGlobalSection
+EndGlobal

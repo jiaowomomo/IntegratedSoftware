@@ -23,7 +23,7 @@ namespace AutomationSystem
 {
     public partial class SystemMainForm : Form
     {
-        private const int FIXED_FORM_COUNT = 3;
+        private const int FIXED_FORM_COUNT = 4;
         private const int SELECT_WINDOW_COUNT = 20;
 
         private static readonly string m_strDefaultConfigFile = Path.Combine(Application.StartupPath, "Default.jw");
@@ -120,6 +120,7 @@ namespace AutomationSystem
             ToolForm.Instance.Show(dockPanelMain, DockState.DockRight);
             MessageForm.Instance.Show(dockPanelMain, DockState.DockBottom);
             ProcessForm.Instance.Show(dockPanelMain, DockState.DockLeft);
+            CameraForm.Instance.Show(dockPanelMain, DockState.Document);
             NewWindowForm();
         }
 
@@ -257,6 +258,8 @@ namespace AutomationSystem
                 return MessageForm.Instance;
             if (persistString == typeof(ToolForm).ToString())
                 return ToolForm.Instance;
+            if (persistString == typeof(CameraForm).ToString())
+                return CameraForm.Instance;
             if (persistString == typeof(WindowForm).ToString())
             {
                 WindowForm windowForm = new WindowForm();
