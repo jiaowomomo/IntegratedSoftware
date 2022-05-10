@@ -140,3 +140,10 @@
 /UIControl/UIControl.HalconVision/obj
 /BuildDLL/Camera.Common.dll
 /BuildDLL/Camera.Common.pdb
+/BuildDLL/packages/jacobslusser.ScintillaNET.3.6.3
+/BuildDLL/ScintillaNET.xml
+/BuildDLL/ScintillaNET.dll
+/BuildDLL/CommonLibrary.CodeSystem.pdb
+/BuildDLL/CommonLibrary.CodeSystem.dll
+/CommonLibrary/CodeSystem/obj/Debug
+/CommonLibrary/packages

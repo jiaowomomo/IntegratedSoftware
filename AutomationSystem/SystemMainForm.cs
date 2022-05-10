@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CommonLibrary.CodeSystem;
+using CommonLibrary.CodeSystem.Presenters;
+using CommonLibrary.CodeSystem.Views;
 using CommonLibrary.DataHelper;
 using CommonLibrary.ExtensionUtils;
 using CommonLibrary.Manager;
@@ -94,6 +97,9 @@ namespace AutomationSystem
             }
 
             LoadToolMenu();
+            CodeManager.Instance.Compile();
+            CodeManager.Instance.OnStatusChange += OnStatusChange;
+            CodeManager.Instance.Status = CodeStatus.Idle;
             GlobalImageProcessControl.OnFinish += OnFinish;
         }
 
@@ -560,21 +566,83 @@ namespace AutomationSystem
 
         private void ToolStripMenuItemCodeEdit_Click(object sender, EventArgs e)
         {
+            using (CodeEditor codeEditor = new CodeEditor())
+            {
+                CodeEditorPresenter codeEditorPresenter = new CodeEditorPresenter(codeEditor);
+                codeEditor.ShowDialog();
+            }
         }
 
         private void ToolStripButtonRunCode_Click(object sender, EventArgs e)
         {
-
+            CodeManager.Instance.RunCode();
         }
 
         private void ToolStripButtonPauseCode_Click(object sender, EventArgs e)
         {
-      
+            CodeManager.Instance.PauseCode();
         }
 
         private void ToolStripButtonStopCode_Click(object sender, EventArgs e)
         {
-     
+            CodeManager.Instance.StopCode();
+        }
+
+        private void OnStatusChange()
+        {
+            switch (CodeManager.Instance.Status)
+            {
+                case CodeStatus.Idle:
+                    {
+                        Action action = new Action(() =>
+                        {
+                            toolStripButtonRunCode.Enabled = true;
+                            toolStripButtonPauseCode.Enabled = false;
+                            toolStripButtonStopCode.Enabled = false;
+                            toolStripStatusLabel1.Text = "空闲中";
+                        });
+                        this.Invoke(action);
+                    }
+                    break;
+                case CodeStatus.Run:
+                    {
+                        Action action = new Action(() =>
+                        {
+                            toolStripButtonRunCode.Enabled = false;
+                            toolStripButtonPauseCode.Enabled = true;
+                            toolStripButtonStopCode.Enabled = true;
+                            toolStripStatusLabel1.Text = "脚本运行中";
+                        });
+                        this.Invoke(action);
+                    }
+                    break;
+                case CodeStatus.Pause:
+                    {
+                        Action action = new Action(() =>
+                        {
+                            toolStripButtonRunCode.Enabled = true;
+                            toolStripButtonPauseCode.Enabled = false;
+                            toolStripButtonStopCode.Enabled = true;
+                            toolStripStatusLabel1.Text = "脚本暂停中";
+                        });
+                        this.Invoke(action);
+                    }
+                    break;
+                case CodeStatus.AbnormalStop:
+                    {
+                        Action action = new Action(() =>
+                        {
+                            toolStripButtonRunCode.Enabled = true;
+                            toolStripButtonPauseCode.Enabled = false;
+                            toolStripButtonStopCode.Enabled = false;
+                            toolStripStatusLabel1.Text = "脚本异常停止，请检查脚本";
+                        });
+                        this.Invoke(action);
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void OnFinish(HImage hImage, List<ShowObject> showObjects, List<ShowText> showTexts, string message, int index)

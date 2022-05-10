@@ -51,6 +51,9 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonLibrary.CodeSystem">
+      <HintPath>..\BuildDLL\CommonLibrary.CodeSystem.dll</HintPath>
+    </Reference>
     <Reference Include="CommonLibrary.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\BuildDLL\CommonLibrary.Controls.dll</HintPath>
