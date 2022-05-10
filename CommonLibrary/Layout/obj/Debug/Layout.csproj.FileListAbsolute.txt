@@ -1,6 +1,0 @@
-C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Layout\obj\Debug\Layout.csproj.CoreCompileInputs.cache
-C:\工作\软件开发\研发软件\AutomationSystem\BuildDLL\Layout.dll
-C:\工作\软件开发\研发软件\AutomationSystem\BuildDLL\Layout.pdb
-C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Layout\obj\Debug\Layout.dll
-C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Layout\obj\Debug\Layout.pdb
-C:\工作\软件开发\研发软件\AutomationSystem\CommonLibrary\Layout\obj\Debug\Layout.csprojAssemblyReference.cache
