@@ -211,6 +211,18 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if exist "$(ProjectDir)..\Calibration" (
+        xcopy /Y "$(ProjectDir)..\Calibration\*.*" "$(TargetDir)\Calibration\")
+if exist "$(ProjectDir)..\CameraDLL" (
+        xcopy /Y "$(ProjectDir)..\CameraDLL\*.*" "$(TargetDir)\CameraDLL\")
+if exist "$(ProjectDir)..\ExternTool" (
+        xcopy /Y "$(ProjectDir)..\ExternTool\*.*" "$(TargetDir)\ExternTool\")
+if exist "$(ProjectDir)..\MotionCardDLL" (
+        xcopy /Y "$(ProjectDir)..\MotionCardDLL\*.*" "$(TargetDir)\MotionCardDLL\")
+if exist "$(ProjectDir)..\ThirdPartyDLL\halcon.dll" (
+        copy /Y "$(ProjectDir)..\ThirdPartyDLL\halcon.dll" "$(TargetDir)")</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

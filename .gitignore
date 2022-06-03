@@ -147,3 +147,4 @@
 /BuildDLL/CommonLibrary.CodeSystem.dll
 /CommonLibrary/CodeSystem/obj/Debug
 /CommonLibrary/packages
+/CommonLibrary/CodeSystem/obj/Release/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs

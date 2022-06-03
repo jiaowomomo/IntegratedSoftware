@@ -22,7 +22,7 @@ namespace Camera.Common
 
         private static readonly Lazy<CameraControl> m_instance = new Lazy<CameraControl>(() => new CameraControl());
 
-        private CameraType m_cameraType = CameraType.MindVision;
+        private CameraType m_cameraType = CameraType.None;
         private string m_strConfigPath = string.Empty;
         private List<ICamera> m_listCameras = new List<ICamera>();
         private ICamera m_camera = null;
@@ -48,10 +48,13 @@ namespace Camera.Common
 
             try
             {
-                string strDLLName = $"{ASSEMBLYNAME}.{CameraType}";
-                string strDLLPath = $"{Path.Combine(m_cameraDLLPath, strDLLName)}.dll";
-                string strTypeName = $"{strDLLName}.{CameraType}Camera";
-                m_camera = (ICamera)Assembly.LoadFile(strDLLPath).CreateInstance(strTypeName);
+                if (CameraType != CameraType.None)
+                {
+                    string strDLLName = $"{ASSEMBLYNAME}.{CameraType}";
+                    string strDLLPath = $"{Path.Combine(m_cameraDLLPath, strDLLName)}.dll";
+                    string strTypeName = $"{strDLLName}.{CameraType}Camera";
+                    m_camera = (ICamera)Assembly.LoadFile(strDLLPath).CreateInstance(strTypeName);
+                }
             }
             catch (Exception ex)
             {
