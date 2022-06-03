@@ -52,12 +52,9 @@
 
 注意：该项目不提供Halcon相关的DLL，需要自行解决，可使用Halcon 12外的其他版本。
 
-① 放置Halcon软件的DLL：halcondotnet.dll至ThirdPartyDLL。
+① 放置Halcon软件的DLL：halcondotnet.dll、halcon.dll至ThirdPartyDLL。
 
-② 打开BuildDLL.sln，选择重新生成解决方案。
+② 打开BuildDLL.sln，选择重新生成解决方案，选择AutomationSystem为启动项目，即可运行软件。
 
-③ 打开AutomationSystem.sln，选择重新生成解决方案。如果使用的是Halcon 64位DLL，编译时请取消勾选首选32位。
+③ 如果使用的是Halcon 64位DLL，编译时请取消勾选首选32位。
   ![image](https://user-images.githubusercontent.com/17681289/167654789-a3ce95ad-0a62-483a-a634-7fd3c6d5dae7.png)
-
-
-④ 将Calibration、CameraDll、ExternTool文件夹以及Halcon软件的DLL：halcon.dll，复制粘贴到AutomationSystem的生成输出路径，即可运行软件。
