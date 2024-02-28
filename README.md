@@ -88,3 +88,9 @@ Note: The project does not provide Halcon related DLLs, you need to solve it by 
 
   If you are using Halcon 64-bit DLL, uncheck Preferred 32-bit when compiling.
   ![image](https://user-images.githubusercontent.com/17681289/167654789-a3ce95ad-0a62-483a-a634-7fd3c6d5dae7.png)
+
+注意：项目编译完成后，运行软件无法显示工具箱，有可能是路径原因导致以下代码无法复制粘贴相关文件到输出目录，请手动复制粘贴文件到输出目录下。
+
+Note: After the project is compiled, the toolbox cannot be displayed when running the software, it may be due to the path that causes the following code to fail to copy and paste the relevant files to the output directory, please manually copy and paste the files to the output directory.
+
+![image](https://github.com/jiaowomomo/IntegratedSoftware/assets/17681289/0c20534c-23fc-4466-be63-6b6e85edacdd)
